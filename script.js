@@ -454,7 +454,6 @@ function startEnd(n = 0) {
 // result = result.flatMap(Object.values);
 // result = result.reduce((accum, current) => accum + current, 0);
 
-
 // console.log(result);
 
 // const triangle = {
@@ -474,32 +473,149 @@ function startEnd(n = 0) {
 //   }
 // }
 
-
-// Создайте объект riddles 
+// Создайте объект riddles
 // Добавьте свойства question, answer
 // создайте метод askQuestion который задает вопрос question и сравнивает ответ с answer
 // Если ответил неверно, то в консоль выводится текст: “вы проиграли”
 // * По желанию, создать 2 подсказки, если пользователь ответил неверно
 
-const riddles = {
-  question: 'Зимой и летом одним цветом.',
-  answer: ['елка'],
-  clues: ['Растет в лесу', 'Хвойное дерево'],
-  askQuestion: function () {
-    for (let i = -1; i < this.clues.length; i++) {
-      let userAnswer = prompt(i < 0 ? this.question : this.question + this.clues[i]);
-      if (userAnswer === this.answer) {
-        alert('Молодец, угадал!')
-      } else {
-        alert((i < temp.length - 1) ? 'Не угадал. Попробуй еще.' : 'Не угадал. Игра окончена.')
-        continue;
-      }
-    }
-  },
-}
+// const riddles = {
+//   question: "Зимой и летом одним цветом.",
+//   answer: ["елка"],
+//   clues: ["Растет в лесу", "Хвойное дерево"],
+//   askQuestion: function () {
+//     for (let i = -1; i < this.clues.length; i++) {
+//       let userAnswer = prompt(
+//         i < 0 ? this.question : this.question + this.clues[i]
+//       );
+//       if (userAnswer === this.answer) {
+//         alert("Молодец, угадал!");
+//       } else {
+//         alert(
+//           i < temp.length - 1
+//             ? "Не угадал. Попробуй еще."
+//             : "Не угадал. Игра окончена."
+//         );
+//         continue;
+//       }
+//     }
+//   },
+// };
 
 // console.log(riddles);
 
 // riddles.test();
 
-riddles.askQuestion();
+// riddles.askQuestion();
+
+// Получите ссылку на первый абзац из дива с id, равным block, выведите его в консоль
+// Получите ссылку на первый абзац с классом www. и вывести его в консоль
+// <p class="www">text 1</p>
+// <p class="www">text 2</p>
+
+const pEl1 = document.querySelector("#block p:first-child");
+
+console.log(pEl1);
+
+const pEl2 = document.querySelector(".www:first-of-type");
+
+console.log(pEl2);
+
+// Дан тег <a class="link" href="#">link text html</a>
+// Вам необходимо поменять текст внутри ссылки на “link text js”
+// Заменить href, на значение https://developer.mozilla.org/ru/
+// Дан тег <img class="photo" src="" alt="">
+// Вам необходимо с помощью js поменять значение src на любое изображение из интернета
+
+const linkAEl = document.querySelector(".link");
+linkAEl.textContent = "link text js";
+linkAEl.setAttribute("href", "https://developer.mozilla.org/ru");
+linkAEl.setAttribute("target", "blank");
+linkAEl.insertAdjacentHTML("afterend", "<br>");
+
+console.log(linkAEl);
+
+const photoImgEl = document.querySelector(".photo");
+photoImgEl.setAttribute("src", "img/test.jpg");
+
+console.log(photoImgEl);
+
+// Дан тег <div class="content"></div>
+// Создайте новый элемент p
+// Добавьте в него текст “Новый текстовый элемент”
+// Добавьте созданный элемент внутри <div class="content"></div>
+// Удалите добавленный узел
+
+const contentDivEl = document.querySelector(".content");
+const newPEl = document.createElement("p");
+newPEl.textContent = "Новый текстовый элемент";
+const headerH2El = document.createElement("h2");
+headerH2El.textContent = "Test Text Header";
+contentDivEl.appendChild(newPEl);
+contentDivEl.appendChild(headerH2El);
+
+console.log(contentDivEl);
+
+console.log(contentDivEl);
+
+let count = 0;
+
+const buttonCounterEl = document.createElement("button");
+buttonCounterEl.addEventListener("click", counter);
+buttonCounterEl.textContent = `Меня кликнули ${count} раз`;
+
+const buttonResetEl = document.createElement("button");
+buttonResetEl.addEventListener("click", reset);
+buttonResetEl.textContent = `Сбросить`;
+
+contentDivEl.appendChild(buttonCounterEl);
+contentDivEl.appendChild(buttonResetEl);
+
+function reset() {
+  count = 0;
+  buttonCounterEl.textContent = `Меня кликнули ${count} раз`;
+  headerH2El.textContent = `${count} кликов`;
+}
+
+function counter() {
+  count++;
+  buttonCounterEl.textContent = `Меня кликнули ${count} раз`;
+  headerH2El.textContent = `${count} кликов`;
+}
+
+buttonResetEl.insertAdjacentHTML("afterend", "<br>");
+
+// Дан тег <div class="content"></div>
+// Создайте с помощью javascript новый элемент button
+// Добавьте текст для кнопки “Отправить”
+// При клике на данную кнопку необходимо чтобы текст поменялся на “Текст отправлен”
+// Создать вторую кнопку, при клике на которую должен появляться параграф с произвольным текстом.
+// При нажатии на вторую кнопку еще раз, текст должен пропадать.
+
+const buttonSendEl = document.createElement("button");
+buttonSendEl.addEventListener("click", send);
+buttonSendEl.textContent = `Отправить`;
+
+const buttonTextEl = document.createElement("button");
+buttonTextEl.addEventListener("click", textGenerate);
+buttonTextEl.textContent = `Генерировать текст`;
+
+function textGenerate() {
+  if (textPEl.textContent !== "") {
+    textPEl.textContent = "";
+  } else {
+    textPEl.textContent = `Some text`;
+  }
+}
+
+function send() {
+  buttonSendEl.textContent = `Текст отправлен`;
+}
+
+const textPEl = document.createElement("p");
+
+contentDivEl.appendChild(buttonSendEl);
+linkAEl.insertAdjacentHTML("afterend", "<br>");
+contentDivEl.appendChild(buttonTextEl);
+linkAEl.insertAdjacentHTML("afterend", "<br>");
+contentDivEl.appendChild(textPEl);
