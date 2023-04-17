@@ -49,9 +49,11 @@
                     throw new Error('The argument must not be null and not undefined');
                 }
                 
-                elem.classList.contains(classToSwitch)
-                    ? elem.classList.remove(classToSwitch)
-                    : elem.classList.add(classToSwitch);
+                // elem.classList.contains(classToSwitch)
+                //     ? elem.classList.remove(classToSwitch)
+                //     : elem.classList.add(classToSwitch);
+
+                elem.classList.toggle('btn-secondary');
             }
 
             switchClass(btnEl, 'btn-secondary');
