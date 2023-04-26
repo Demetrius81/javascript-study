@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Homework 9</title>
+        <link rel="stylesheet" href="homework9.css">
     </head>
     <body>
         <input id="from" type="text">
@@ -80,6 +81,16 @@ if (!el.value) {
     }
 }
 
+const event = new Event('submit', {bubbles: true, cancelable: true, composed: false});
+
+inputControlEl.addEventListener('focus', () => {
+    addRemoveError(inputControlEl);
+});
+
+selectControlEl.addEventListener('focus', () => {
+    addRemoveError(selectControlEl);
+});
+
 inputControlEl.addEventListener('input', () => {
     addRemoveError(inputControlEl);
 });
@@ -91,6 +102,7 @@ selectControlEl.addEventListener('input', () => {
 btnEl.addEventListener('click', (e) => {
     if (addRemoveError(inputControlEl) || addRemoveError(selectControlEl)) {
         console.log('Отправка формы');
+        btnEl.dispatchEvent(event);
     } else {
         console.log('Форма не отправлена');
     }
