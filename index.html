@@ -8,85 +8,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <!-- <form action="#">
-            <h2>Lorem, ipsum.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptate tempora quis, in nihil ab, iste fugit reprehenderit nemo explicabo aliquid repellendus ratione esse architecto rerum. Ipsum corporis expedita, quasi explicabo eum aliquid id in ut error ipsam laboriosam ex omnis aperiam maxime, natus perferendis quisquam impedit delectus nam nulla.</p>
-            <input
-                type="checkbox"
-                name="checkbox"
-                id="check"
-                class="checkbox"
-            >
-            <label for="check">Согласен с условиями</label>
-            <br>
-            <button class="btn" type="submit">Отправить</button>
-        </form> -->
-        <!-- <form action="#" class="form">
-            <h2>Lorem, ipsum.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque voluptate tempora quis, in nihil ab, iste fugit reprehenderit nemo explicabo aliquid repellendus ratione esse architecto rerum. Ipsum corporis expedita, quasi explicabo eum aliquid id in ut error ipsam laboriosam ex omnis aperiam maxime, natus perferendis quisquam impedit delectus nam nulla.</p>
-            <input
-                id="tea"
-                type="radio"
-                name="choice"
-                class="tea"
-            >
-            <label for="tea">Чай</label>
-            <br>
-            <input
-                id="coffee"
-                type="radio"
-                name="choice"
-                class="coffee"
-            >
-            <label for="coffee">Кофе</label>
-            <br>
-            <button class="btn" type="submit">Отправить</button>
-        </form> -->
-        <!-- <form action="#" class="form">
-            <h2>Lorem ipsum dolor sit.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vel voluptates dolores ad? Earum, quidem? Deserunt temporibus at ipsum repellat rerum vero pariatur eius quaerat quisquam aut, tempora veniam saepe nihil rem facere officia, quo quidem perferendis, officiis dignissimos? Corrupti saepe asperiores ullam, praesentium voluptatem molestiae. Quae eius rerum voluptas et itaque sint beatae laboriosam ea, soluta dicta amet voluptatum dolorem sunt ipsam suscipit cum nisi possimus modi quidem quod?</p>
-            <input type="password" class="input-pass">
-            <label for="input-pass">Пароль</label>
-        </form> -->
-        <input type="text" class="input">
-        <h2 class="header"></h2>
+        <div class="content"></div>
+        <script src="data.js"></script>
         <script>
-            // const formEl = document.querySelector('form');
-            // const checkboxEl = formEl.querySelector('.checkbox');
-            // const btnEl = formEl.querySelector('.btn');
-            // const errorEl = document.createElement('div');
-            
-            // errorEl.textContent = 'Необходимо согласиться с условиями';
-            // errorEl.className = 'warning';
-            
-            // formEl.addEventListener('submit', (e) => {
-            //     if (checkboxEl.checked) {
-            //         errorEl.remove();
-            //     } else {
-            //         e.preventDefault();
-            //         btnEl.before(errorEl);
-            //     }
+            // const data = JSON.parse(dataInfo);
+
+            fetch('https://www.boredapi.com/api/activity?participants=1').then(response => {response.json()}).then(data => {console.log(data.data)});
+            // const data = JSON.parse(response);
+            // console.log(data);
+            // data.forEach(item => {
+            //     console.log(item.name);
             // });
-            // const formEl = document.querySelector('.form');
-            // const teaEl = formEl.querySelector('.tea');
-            // const coffeeEl = formEl.querySelector('.coffee');
-
-            // formEl.addEventListener('submit', (e) => {
-            //     if (teaEl.checked && !coffeeEl.checked) {
-            //         console.log('Чай закончился');
-            //         e.stopPropagation();
-            //     } else {
-            //         console.log('Кофе закончился');
-            //         e.stopPropagation();
-            //     }
-            // })
-            const inputEl = document.querySelector('.input');
-            const headerEl = document.querySelector('.header');
-
-            inputEl.addEventListener('input', () => {
-                headerEl.textContent = inputEl.value;
-            })
         </script>
-        <script src="scriptpro.js"></script>
     </body>
 </html>
