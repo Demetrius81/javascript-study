@@ -303,23 +303,59 @@ dd {
     &__cards {
         padding-top: 48px;
         padding-bottom: 48px;
-        display: grid;
-        grid-template: repeat(2, 581px) / repeat(3, 360px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row wrap;
         gap: 30px 30px;
-        place-content: center center;
-        place-items: center center;
 
-        &__card {
+        .card {
             @include flexCenterCenterColumn();
+            max-width: 360px;
+            max-height: 581px;
             background: #f8f8f8;
             transition: all 0.3s ease;
 
-            &__image_font {
+            &__image-font {
                 @include flexCenter();
                 align-items: center;
-                min-width: 360px;
-                min-height: 420px;
+                width: 360px;
+                height: 420px;
                 background: #f7e4e2;
+            }
+
+            &__image-back {
+                position: relative;
+            }
+
+            &__image-btn {
+                display: none;
+                position: absolute;
+                top: calc(50% - 22px);
+                left: calc(50% - 69px);
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                padding: 8px 10px 16px 13px;
+                background: none;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                & span {
+                    margin-right: 11px;
+                }
+
+                & span svg path {
+                    fill: #ffffff;
+                }
+
+                &:hover {
+                    background: $pinkColor;
+                    border: 1px solid $pinkColor;
+                }
             }
 
             &__content {
@@ -330,7 +366,7 @@ dd {
                 gap: 12px;
             }
 
-            &__small_title {
+            &__small-title {
                 font-weight: 400;
                 font-size: 13px;
                 line-height: 16px;
@@ -352,12 +388,17 @@ dd {
                 color: $pinkColor;
             }
 
-            &:hover {
-                border: 1px dotted $pinkColor;
+            &:hover .card__img {
+                filter: grayscale(100%);
             }
 
-            &:active {
-                border: 1px solid $pinkColor;
+            &:hover .card__image-btn {
+                display: block;
+                z-index: 1;
+            }
+
+            &:hover .card__image_font {
+                filter: grayscale(100%);
             }
         }
     }
@@ -428,6 +469,119 @@ dd {
                 line-height: 17px;
                 text-align: center;
                 color: #fbfbfb;
+            }
+        }
+    }
+}
+
+.cart {
+    margin-top: 96px;
+    margin-bottom: 96px;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+
+        &__text {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 36px;
+            color: #222222;
+        }
+    }
+
+    &__items {
+        margin-top: 64px;
+
+        &__product_cards {
+            margin-left: 230px;
+            display: flex;
+            justify-content: start;
+            flex-flow: column;
+            gap: 40px;
+
+            &__card {
+                width: 652px;
+                height: 306px;
+                display: flex;
+                flex-flow: row;
+                justify-content: flex-start;
+                gap: 31px;
+                -webkit-box-shadow: 0px 21px 40px 10px rgba(143, 150, 156, 0.39);
+                -moz-box-shadow: 0px 21px 40px 10px rgba(143, 150, 156, 0.39);
+                box-shadow: 0px 21px 40px 10px rgba(143, 150, 156, 0.39);
+                position: relative;
+
+                &__img {
+                    width: 262;
+                    height: 306;
+                }
+
+                &__picture {
+                    display: flex;
+                    overflow: hidden;
+                    width: 262px;
+                }
+
+                &__description {
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: flex-start;
+                    gap: 6px;
+                    margin-top: 22px;
+
+                    &__title {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 29px;
+                        color: #222222;
+                        margin-bottom: 36px;
+                    }
+                    &__cross {
+                        position: absolute;
+                        top: 28px;
+                        right: 22px;
+                        margin: 1px;
+                        padding: 0px;
+                        background: #ffffff;
+                        border: none;
+                    }
+
+                    .remove-product:hover {
+                        cursor: pointer;
+                    }
+
+                    &__text {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 22px;
+                        line-height: 26px;
+                        color: #575757;
+                    }
+
+                    &__text_color_red {
+                        color: $pinkColor;
+                    }
+
+                    &__text_color {
+                        color: #6f6e6e;
+                    }
+
+                    &__count {
+                        color: #656565;
+                        border: 1px solid #eaeaea;
+                        padding: 1px 16px;
+                        margin-left: 25px;
+                    }
+
+                    &__quantity {
+                        display: flex;
+                        flex-flow: row;
+                        justify-content: space-between;
+                    }
+                }
             }
         }
     }
