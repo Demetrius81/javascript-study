@@ -39,4 +39,7 @@ const createCalculator = (startNumber) => {
 const createGreeting = (name) => () => console.log(`Hello, ${name}`);
 
 const createPasswordChecker = (length) => (password) =>
-  password.length < length ? false : true;
+  password.length >= length;
+
+const sumDigits = (number) =>
+  number === 0 ? 0 : (number % 10) + sumDigits(Math.floor(number / 10));
