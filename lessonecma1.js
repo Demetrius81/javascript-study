@@ -26,3 +26,17 @@ const capitalizeFirstLetter = (str) =>
     .split(" ")
     .map((x) => x[0].toUpperCase() + x.slice(1))
     .reduce((acc, val) => acc + " " + val);
+
+const createCalculator = (startNumber) => {
+  let number = startNumber;
+  return {
+    add: (addNumber) => (number += addNumber),
+    substract: (subtractNumber) => (number -= subtractNumber),
+    getNumber: () => number,
+  };
+};
+
+const createGreeting = (name) => () => console.log(`Hello, ${name}`);
+
+const createPasswordChecker = (length) => (password) =>
+  password.length < length ? false : true;

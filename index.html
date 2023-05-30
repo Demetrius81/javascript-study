@@ -27,6 +27,20 @@
 
             const str = 'def grh hty tgb rfg hyj'
             console.log(capitalizeFirstLetter(str));
+
+            const calc1 = createCalculator(5);
+            const calc2 = createCalculator(0);
+            calc1.add(5);
+            calc2.substract(5);
+            console.log(calc1.getNumber());
+            console.log(calc2.getNumber());
+
+            const greeting = createGreeting('John Doe');
+            greeting();
+
+            const isPasswordValid = createPasswordChecker(8);
+            console.log(isPasswordValid('password'));
+            console.log(isPasswordValid('secret'));
         </script>
     </body>
 </html>
