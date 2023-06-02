@@ -62,7 +62,7 @@ class Person {
       this.age = age;
       this.gender = gender;
     } else {
-      new Error("Wrong argument!");
+      throw new Error("Invalid argument!");
     }
   }
 
@@ -87,15 +87,15 @@ class BankAccount {
       this._accountNumber = accountNumber;
       this._balance = balance;
     } else {
-      new Error("Wrong argument!");
+      throw new Error("Invalid argument!");
     }
   }
 
-  getBalance() {
+  get balance() {
     return this._balance;
   }
 
-  getAccountNumber() {
+  get accountNumber() {
     return this._accountNumber;
   }
 
