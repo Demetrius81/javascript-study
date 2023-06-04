@@ -30,11 +30,17 @@
 
             const product1 = new Product("Phone", 500);
             order.addProduct(product1);
-
             const product2 = new Product("Headphones", 100);
             order.addProduct(product2);
+            order.addProduct("Samsung", 400);
 
-            console.log(order.getTotalPrice()); // Вывод: 600
+            console.log(order.getTotalPrice()); // Вывод: 1000
+
+            order.removeProduct(product2);
+            order.removeProduct("Samsung");
+
+
+            console.log(order.getTotalPrice()); // Вывод: 500
         </script>
     </body>
 </html>
