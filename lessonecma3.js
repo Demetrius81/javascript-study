@@ -79,3 +79,24 @@ class Dog extends Animal {
     console.log(`Собака ${this.name} принесла мяч.`);
   }
 }
+
+const bodyEl = document.querySelector("body");
+console.log(getPrototypeChain(bodyEl));
+console.log(bodyEl);
+
+const person1 = new Person("John", 25);
+person1.introduce();
+console.log(person1);
+
+const account1 = new BankAccount("1234567890", 1000);
+account1.deposit(500);
+account1.withdraw(200);
+account1.withdraw(1500);
+
+const animal1 = new Animal("Животное");
+animal1.speak(); // Вывод: Животное издает звук.
+const dog1 = new Dog("Бобик", "Дворняжка");
+dog1.speak(); // Вывод: Животное Бобик издает звук.
+console.log(dog1.breed); // Вывод: Дворняжка
+dog1.fetch(); // Вывод: Собака Бобик принесла мяч.
+console.log(dog1);
