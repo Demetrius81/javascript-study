@@ -123,3 +123,30 @@ const sumDigits = (num) => {
 
   return (num % 10) + sumDigits(Math.floor(num / 10));
 };
+
+person.name = "John";
+person.age = 25;
+person.gender = "male";
+person.introduce();
+person.changeName("Mike");
+person.introduce();
+
+dog.name = "Rex";
+dog.eat = animal.eat;
+dog.bark();
+dog.eat();
+
+console.log(calculator.add.call(null, 5, 3));
+console.log(calculator.subtract.apply(null, [5, 3]));
+console.log(calculator.multiply.call(null, 5, 3));
+
+const person2 = new Person("Jack", 30, "male");
+person2.introduce();
+
+const account1 = new BankAccount("1234567890", 1000);
+account1.deposit(500);
+account1.withdraw(200);
+account1.withdraw(1500);
+
+console.log(sumDigits(123));
+console.log(sumDigits(456789));
