@@ -160,4 +160,17 @@ const sortArr = (url) => {
   console.log(result);
 };
 
-sortArr("https://jsonplaceholder.typicode.com/users");
+const onFulfilled = (resolve) => {
+  return resolve;
+};
+
+const onRejected = (reject) => {
+  return reject;
+};
+
+console.log(
+  getData("https://jsonplaceholder.typicode.com/users").then(
+    onFulfilled,
+    onRejected
+  )
+);
