@@ -7,6 +7,7 @@
         <title>
             Workshops
         </title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div id="app">
@@ -15,29 +16,15 @@
                 <section v-if="iAmOfLegalAge">
                     <h3>Можете заказать товар &#128522;</h3>
                     <p>Товаров в корзине {{count}}</p>
-                    <div v-if="!productInCard[0]">
-                        <button v-on:click="incrementCount(0)">Add to cart</button>
-                    </div>
-                    <div v-else="productInCard[0]">
-                        <button v-on:click="goToCard()">Go to card</button>
-                    </div>
-                    <div v-if="!productInCard[1]">
-                        <button v-on:click="incrementCount(1)">Add to cart</button>
-                    </div>
-                    <div v-else="productInCard[1]">
-                        <button v-on:click="goToCard()">Go to card</button>
-                    </div>
-                    <div v-if="!productInCard[2]">
-                        <button v-on:click="incrementCount(2)">Add to cart</button>
-                    </div>
-                    <div v-else="productInCard[2]">
-                        <button v-on:click="goToCard()">Go to card</button>
-                    </div>
-                    <div v-if="!productInCard[3]">
-                        <button v-on:click="incrementCount(3)">Add to cart</button>
-                    </div>
-                    <div v-else="productInCard[3]">
-                        <button v-on:click="goToCard()">Go to card</button>
+                    <div class="shop">
+                        <div class="card" v-for="product in products" :key="product.id">
+                            <div v-if="!product.productInCard">
+                                <button class="card__btn" v-on:click="incrementCount(product.id)">Add to cart</button>
+                            </div>
+                            <div v-else="product.productInCard">
+                                <button class="card__btn" v-on:click="goToCard()">Go to card</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section v-else="!iAmOfLegalAge">
@@ -57,14 +44,18 @@
                 data: {
                     message: "Hello VUE!!!",
                     count: 0,
-                    productInCard: [false, false, false, false,],
+                    products: [{id: 1, productInCard: false,}, {id: 2, productInCard: false,}, {id: 3, productInCard: false,}, {id: 4, productInCard: false,}],
                     choiseIsDone: false,
                     iAmOfLegalAge: false,
                 },
                 methods: {
                     incrementCount(i) {
                         this.count++;
-                        this.productInCard[i] = true;
+                        this.products.forEach(x => {
+                            if (x.id === i) {
+                                x.productInCard = true;
+                            }
+                        });
                     },
                     goToCard() {
                         window.location.href = 'card.html'
