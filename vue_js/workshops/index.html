@@ -9,7 +9,76 @@
         </title>
     </head>
     <body>
+        <div id="app">
+            <h1 class="header">{{message}}</h1>
+            <div v-show="choiseIsDone">
+                <section v-if="iAmOfLegalAge">
+                    <h3>Можете заказать товар &#128522;</h3>
+                    <p>Товаров в корзине {{count}}</p>
+                    <div v-if="!productInCard[0]">
+                        <button v-on:click="incrementCount(0)">Add to cart</button>
+                    </div>
+                    <div v-else="productInCard[0]">
+                        <button v-on:click="goToCard()">Go to card</button>
+                    </div>
+                    <div v-if="!productInCard[1]">
+                        <button v-on:click="incrementCount(1)">Add to cart</button>
+                    </div>
+                    <div v-else="productInCard[1]">
+                        <button v-on:click="goToCard()">Go to card</button>
+                    </div>
+                    <div v-if="!productInCard[2]">
+                        <button v-on:click="incrementCount(2)">Add to cart</button>
+                    </div>
+                    <div v-else="productInCard[2]">
+                        <button v-on:click="goToCard()">Go to card</button>
+                    </div>
+                    <div v-if="!productInCard[3]">
+                        <button v-on:click="incrementCount(3)">Add to cart</button>
+                    </div>
+                    <div v-else="productInCard[3]">
+                        <button v-on:click="goToCard()">Go to card</button>
+                    </div>
+                </section>
+                <section v-else="!iAmOfLegalAge">
+                    <h3>Доступ закрыт &#128563;</h3>
+                </section>
+            </div>
+            <div v-show="!choiseIsDone">
+                <button v-on:click="choiceYes()">Мне исполнилось 18 лет</button>
+                <button v-on:click="choiceNo()">Мне еще нет 18 лет</button>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script src="workshop1.js"></script>
+        <!-- <script src="workshop1.js"></script> -->
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    message: "Hello VUE!!!",
+                    count: 0,
+                    productInCard: [false, false, false, false,],
+                    choiseIsDone: false,
+                    iAmOfLegalAge: false,
+                },
+                methods: {
+                    incrementCount(i) {
+                        this.count++;
+                        this.productInCard[i] = true;
+                    },
+                    goToCard() {
+                        window.location.href = 'card.html'
+                    },
+                    choiceYes() {
+                        this.choiseIsDone = true;
+                        this.iAmOfLegalAge = true;
+                    },
+                    choiceNo() {
+                        this.choiseIsDone = true;
+                        this.iAmOfLegalAge = false;
+                    },
+                },
+                });
+        </script>
     </body>
 </html>
