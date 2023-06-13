@@ -175,23 +175,23 @@
 // }
 // console.log(sum);
 
-let str = "";
+// let str = "";
 
-for (let i = 1; i <= 9; i++) {
-  if (i == 9) {
-    str += "-" + i + "-";
-  } else {
-    str += "-" + i;
-  }
-}
+// for (let i = 1; i <= 9; i++) {
+//   if (i == 9) {
+//     str += "-" + i + "-";
+//   } else {
+//     str += "-" + i;
+//   }
+// }
 
-console.log(str);
+// console.log(str);
 
-const arr = [2, 5, 9, 0, 3, 1, 4];
+// const arr = [2, 5, 9, 0, 3, 1, 4];
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] === 0) {
-    break;
-  }
-  console.log(arr[i]);
-}
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] === 0) {
+//     break;
+//   }
+//   console.log(arr[i]);
+// }
