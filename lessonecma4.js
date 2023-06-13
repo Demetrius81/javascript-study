@@ -57,78 +57,80 @@ const delayedMessage = (message, delay) =>
 
 //Task 4
 
-function splitString(str) {
-  let from = 0;
-  let index = 0;
-  let count = 0;
-  let splitter = {};
+class Comparer {
+  static splitString(str) {
+    let from = 0;
+    let index = 0;
+    let count = 0;
+    let splitter = {};
 
-  splitter.count = function () {
-    return count;
-  };
+    splitter.count = function () {
+      return count;
+    };
 
-  splitter.next = function () {
-    if (index === str.length) {
-      return null;
-    }
-
-    while (++index) {
-      let currentIsDigit = isDigit(str.charAt(index - 1));
-      let nextChar = str.charAt(index);
-      let currentIsLast = index === str.length;
-
-      let isBorder = currentIsLast || xor(currentIsDigit, isDigit(nextChar));
-      if (isBorder) {
-        let part = str.slice(from, index);
-        from = index;
-        count++;
-        return {
-          IsNumber: currentIsDigit,
-          Value: currentIsDigit ? Number(part) : part,
-        };
+    splitter.next = function () {
+      if (index === str.length) {
+        return null;
       }
-    }
-  };
 
-  return splitter;
-}
+      while (++index) {
+        let currentIsDigit = isDigit(str.charAt(index - 1));
+        let nextChar = str.charAt(index);
+        let currentIsLast = index === str.length;
 
-function xor(a, b) {
-  return a ? !b : b;
-}
-
-function isDigit(chr) {
-  let charCode = function (ch) {
-    return ch.charCodeAt(0);
-  };
-  let code = charCode(chr);
-  return code >= charCode("0") && code <= charCode("9");
-}
-
-function compareStrings(str1, str2) {
-  let compare = function (a, b) {
-    return a < b ? -1 : a > b ? 1 : 0;
-  };
-
-  let splitter1 = splitString(str1);
-  let splitter2 = splitString(str2);
-
-  while (true) {
-    let first = splitter1.next();
-    let second = splitter2.next();
-
-    if (null !== first && null !== second) {
-      if (xor(first.IsNumber, second.IsNumber)) {
-        return first.IsNumber ? -1 : 1;
-      } else {
-        let comp = compare(first.Value, second.Value);
-
-        if (comp != 0) {
-          return comp;
+        let isBorder = currentIsLast || xor(currentIsDigit, isDigit(nextChar));
+        if (isBorder) {
+          let part = str.slice(from, index);
+          from = index;
+          count++;
+          return {
+            IsNumber: currentIsDigit,
+            Value: currentIsDigit ? Number(part) : part,
+          };
         }
       }
-    } else {
-      return compare(splitter1.count(), splitter2.count());
+    };
+
+    return splitter;
+  }
+
+  static xor(a, b) {
+    return a ? !b : b;
+  }
+
+  static isDigit(chr) {
+    let charCode = function (ch) {
+      return ch.charCodeAt(0);
+    };
+    let code = charCode(chr);
+    return code >= charCode("0") && code <= charCode("9");
+  }
+
+  static compareStrings(str1, str2) {
+    let compare = function (a, b) {
+      return a < b ? -1 : a > b ? 1 : 0;
+    };
+
+    let splitter1 = splitString(str1);
+    let splitter2 = splitString(str2);
+
+    while (true) {
+      let first = splitter1.next();
+      let second = splitter2.next();
+
+      if (null !== first && null !== second) {
+        if (xor(first.IsNumber, second.IsNumber)) {
+          return first.IsNumber ? -1 : 1;
+        } else {
+          let comp = compare(first.Value, second.Value);
+
+          if (comp != 0) {
+            return comp;
+          }
+        }
+      } else {
+        return compare(splitter1.count(), splitter2.count());
+      }
     }
   }
 }
@@ -156,21 +158,23 @@ const getData = async (url) => {
 
 const sortArr = (url) => {
   let result = getData(url).then((x) => x);
-  result.sort((a, b) => compareStrings(a.name, b.name));
+  result.sort((a, b) => Comparer.compareStrings(a.name, b.name));
   console.log(result);
 };
 
+let listUsers = [];
+
 const onFulfilled = (resolve) => {
-  return resolve;
+  listUsers.push(resolve.forEach((x) => listUsers.push(x)));
 };
 
 const onRejected = (reject) => {
   return reject;
 };
 
-console.log(
-  getData("https://jsonplaceholder.typicode.com/users").then(
-    onFulfilled,
-    onRejected
-  )
+getData("https://jsonplaceholder.typicode.com/users").then(
+  onFulfilled,
+  onRejected
 );
+
+console.log(listUsers);
