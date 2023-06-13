@@ -9,39 +9,33 @@
     </head>
     <body>
         <div class="content"></div>
-        <script src="lessonecma1.js"></script>
+        <script src="lessonecma2.js"></script>
         <script>
-            const a = [1, 2, 3];
-            const b = [4, 5, 6];
+            person.name = "John";
+            person.age = 25;
+            person.gender = "male";
+            person.introduce();
+            person.changeName("Mike");
+            person.introduce();
 
-            console.log(mergeArrays(a, b));
+            dog.name = 'Rex';
+            dog.eat = animal.eat;
+            dog.bark();
+            dog.eat();
 
-            console.log(removeDuplicates(1, 2, 3, 2, 4, 1, 5));
+            console.log(calculator.add.call(null, 5, 3));
+            console.log(calculator.subtract.apply(null, [5, 3]));
+            console.log(calculator.multiply.call(null, 5, 3));
 
-            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-            console.log(arr);
-            console.log(getEventNumber(arr));
-            console.log(arr);
+            const person2 = new Person('Jack', 30, 'male');
+            person2.introduce();
 
-            console.log(calculateAverage(arr));
+            const account1= new BankAccount("1234567890", 1000);
+            account1.deposit(500);
+            account1.withdraw(200);
+            account1.withdraw(1500);
 
-            const str = 'def grh hty tgb rfg hyj'
-            console.log(capitalizeFirstLetter(str));
-
-            const calc1 = createCalculator(5);
-            const calc2 = createCalculator(0);
-            calc1.add(5);
-            calc2.substract(5);
-            console.log(calc1.getNumber());
-            console.log(calc2.getNumber());
-
-            const greeting = createGreeting('John Doe');
-            greeting();
-
-            const isPasswordValid = createPasswordChecker(8);
-            console.log(isPasswordValid('password'));
-            console.log(isPasswordValid('secret'));
-
+            console.log(sumDigits(123));
             console.log(sumDigits(456789));
         </script>
     </body>
