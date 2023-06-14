@@ -1,0 +1,41 @@
+@import "./style_default";
+@import "./variables";
+
+.center {
+    padding-left: calc(50% - ($pageWidth / 2));
+    padding-right: calc(50% - ($pageWidth / 2));
+}
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+
+        &_link > svg {
+            width: 34px;
+            height: 34px;
+        }
+
+        &_link > svg > path {
+            fill: #cda274;
+        }
+
+        &_link > span {
+            font-family: "DM Serif Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 125%;
+            display: flex;
+            align-items: center;
+            color: #292f36;
+        }
+    }
+}
