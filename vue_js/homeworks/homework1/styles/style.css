@@ -94,6 +94,8 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: 61px;
+  margin-bottom: 57px;
 }
 .header__logo {
   display: flex;
@@ -117,4 +119,161 @@ a {
   display: flex;
   align-items: center;
   color: #292f36;
+}
+.header__links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 40px;
+}
+.header__links_link {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #292f36;
+}
+
+.greetings__box {
+  width: 1200px;
+  height: 758px;
+  background: url("../img/greetings__photo.png");
+  background-size: contain;
+  border-radius: 70px;
+}
+.greetings__content {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-flow: column wrap;
+  gap: 19px;
+  padding-left: 52px;
+  padding-top: 208px;
+}
+.greetings__content_header {
+  max-width: 433px;
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 65px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #292f36;
+}
+.greetings__content_text {
+  max-width: 433px;
+  color: #4d5053;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 3px;
+}
+.greetings__button {
+  width: 220.14px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  gap: 10px;
+  background: #292f36;
+  border-radius: 18px;
+  box-shadow: 0px 10px 20px rgba(192, 192, 192, 0.35);
+  border-radius: 18px;
+}
+.greetings__button_text {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.greetings__button_arrow > svg {
+  width: 19px;
+  height: 17px;
+}
+.greetings__button_arrow > svg > path {
+  stroke: #cda274;
+}
+
+.large-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.large-content__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.large-content__header_head {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 125%;
+  display: block;
+  letter-spacing: 0.02em;
+  color: #292f36;
+  max-width: 451px;
+}
+.large-content__header_description {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+  width: 737px;
+}
+.large-content__card-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+.large-content__card-box .big-card {
+  width: 548px;
+  height: 619px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.large-content__card-box .big-card__img {
+  width: 548px;
+  height: 525px;
+  background: url("../img/big-card__Photo1.png");
+  border-radius: 0px 80px 0px 0px;
+}
+.large-content__card-box .big-card__box-content {
+  width: 548px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+}
+.large-content__card-box .big-card__content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
 }/*# sourceMappingURL=style.css.map */

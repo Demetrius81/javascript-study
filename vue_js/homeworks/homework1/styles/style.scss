@@ -2,8 +2,8 @@
 @import "./variables";
 
 .center {
-    padding-left: calc(50% - ($pageWidth / 2));
-    padding-right: calc(50% - ($pageWidth / 2));
+    padding-left: calc(50% - ($widthPage / 2));
+    padding-right: calc(50% - ($widthPage / 2));
 }
 
 .header {
@@ -11,6 +11,8 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    margin-top: 61px;
+    margin-bottom: 57px;
 
     &__logo {
         display: flex;
@@ -24,7 +26,7 @@
         }
 
         &_link > svg > path {
-            fill: #cda274;
+            fill: $colorLogo;
         }
 
         &_link > span {
@@ -35,7 +37,187 @@
             line-height: 125%;
             display: flex;
             align-items: center;
-            color: #292f36;
+            color: $colorTextBasic;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 40px;
+
+        &_link {
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 125%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: $colorTextBasic;
+        }
+    }
+}
+
+.greetings {
+    &__box {
+        width: 1200px;
+        height: 758px;
+        background: url("../img/greetings__photo.png");
+        background-size: contain;
+        border-radius: 70px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-flow: column wrap;
+        gap: 19px;
+        padding-left: 52px;
+        padding-top: 208px;
+
+        &_header {
+            max-width: 433px;
+            font-family: "DM Serif Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 65px;
+            line-height: 125%;
+            display: flex;
+            align-items: center;
+            color: $colorTextBasic;
+        }
+
+        &_text {
+            max-width: 433px;
+            color: $colorTextLight;
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 150%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.01em;
+            margin-bottom: 3px;
+        }
+    }
+    &__button {
+        width: 220.14px;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row nowrap;
+        gap: 10px;
+        background: $colorTextBasic;
+        border-radius: 18px;
+        box-shadow: 0px 10px 20px rgba(192, 192, 192, 0.35);
+        border-radius: 18px;
+
+        &_text {
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 125%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: #fff;
+        }
+    }
+
+    &__button_arrow > svg {
+        width: 19px;
+        height: 17px;
+    }
+
+    &__button_arrow > svg > path {
+        stroke: $colorLogo;
+    }
+}
+
+.large-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+
+        &_head {
+            font-family: "DM Serif Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 125%;
+            display: block;
+            letter-spacing: 0.02em;
+            color: $colorTextBasic;
+            max-width: 451px;
+        }
+
+        &_description {
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 150%;
+            // display: block;
+            letter-spacing: 0.01em;
+            color: $colorTextLight;
+            width: 737px;
+        }
+    }
+
+    &__card-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+
+        .big-card {
+            width: $widthBigCard;
+            height: $heightBigCard;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+
+            &__img {
+                width: $widthBigCardPicture;
+                height: $heightBigCardPicture;
+                background: url("../img/big-card__Photo1.png");
+                border-radius: 0px 80px 0px 0px;
+            }
+            &__box-content {
+                width: $widthBigCard;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-flow: row;
+            }
+            &__content {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-flow: column;
+                &_header {
+                }
+                &_text {
+                }
+            }
+            &__button {
+            }
         }
     }
 }
