@@ -1,6 +1,29 @@
 @import "./style_default";
 @import "./variables";
 
+.bacground {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        90deg,
+        $colorBacgroundMain calc(50% - ($widthPage / 2)),
+        $colorBacgroundLines calc(50% - ($widthPage / 2)),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 1px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 1px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 399px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 399px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 400px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 400px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 799px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 799px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 800px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 800px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 1199px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 1199px),
+        $colorBacgroundLines calc((50% - ($widthPage / 2)) + 1200px),
+        $colorBacgroundMain calc((50% - ($widthPage / 2)) + 1200px)
+    );
+}
+
 .center {
     padding-left: calc(50% - ($widthPage / 2));
     padding-right: calc(50% - ($widthPage / 2));
@@ -11,8 +34,9 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    margin-top: 61px;
-    margin-bottom: 57px;
+    padding-top: 61px;
+    padding-bottom: 57px;
+    z-index: 1;
 
     &__logo {
         display: flex;
@@ -20,16 +44,16 @@
         align-items: center;
         gap: 10px;
 
-        &_link > svg {
+        &_link svg {
             width: 34px;
             height: 34px;
         }
 
-        &_link > svg > path {
+        &_link svg path {
             fill: $colorLogo;
         }
 
-        &_link > span {
+        &_link span {
             font-family: "DM Serif Display";
             font-style: normal;
             font-weight: 400;
@@ -115,8 +139,8 @@
         gap: 10px;
         background: $colorTextBasic;
         border-radius: 18px;
-        box-shadow: 0px 10px 20px rgba(192, 192, 192, 0.35);
-        border-radius: 18px;
+        box-shadow: 0px 10px 20px #c0c0c059;
+        border: none;
 
         &_text {
             font-family: "Jost";
@@ -128,16 +152,16 @@
             align-items: center;
             text-align: center;
             letter-spacing: 0.02em;
-            color: #fff;
+            color: $colorBacgroundMain;
         }
     }
 
-    &__button_arrow > svg {
+    &__button_arrow svg {
         width: 19px;
         height: 17px;
     }
 
-    &__button_arrow > svg > path {
+    &__button_arrow svg path {
         stroke: $colorLogo;
     }
 }
@@ -153,6 +177,7 @@
         justify-content: center;
         align-items: center;
         flex-flow: column;
+        gap: 8px;
 
         &_head {
             font-family: "DM Serif Display";
@@ -164,6 +189,7 @@
             letter-spacing: 0.02em;
             color: $colorTextBasic;
             max-width: 451px;
+            padding-top: 96px;
         }
 
         &_description {
@@ -172,10 +198,10 @@
             font-weight: 400;
             font-size: 22px;
             line-height: 150%;
-            // display: block;
             letter-spacing: 0.01em;
             color: $colorTextLight;
             width: 737px;
+            padding-bottom: 93px;
         }
     }
 
@@ -184,12 +210,13 @@
         justify-content: center;
         align-items: center;
         flex-flow: row wrap;
+        gap: 60px 102px;
 
         .big-card {
             width: $widthBigCard;
             height: $heightBigCard;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             flex-flow: column;
 
@@ -212,11 +239,259 @@
                 align-items: flex-start;
                 flex-flow: column;
                 &_header {
+                    font-family: "DM Serif Display";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 25px;
+                    line-height: 125%;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.02em;
+
+                    color: $colorTextBasic;
                 }
                 &_text {
+                    font-family: "Jost";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 22px;
+                    line-height: 150%;
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.01em;
+
+                    color: $colorTextLight;
                 }
             }
             &__button {
+                width: 70px;
+                height: 70px;
+                border-radius: 35px;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $colorBacgroundBtnBigCard;
+            }
+
+            &__button svg {
+                width: 10px;
+                height: 20px;
+            }
+
+            &__button svg path {
+                stroke: $colorTextBasic;
+            }
+        }
+    }
+}
+
+.statistics {
+    background: $colorBacgroundBtnBigCard;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 151px;
+    padding-bottom: 151px;
+    margin-top: 101px;
+    margin-bottom: 96px;
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row nowrap;
+    }
+
+    &__item {
+        position: relative;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        gap: 16px;
+        &_header {
+            font-family: "DM Serif Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 85px;
+            line-height: 125%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.02em;
+            color: $colorLogo;
+        }
+
+        &_description {
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 150%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.01em;
+            color: $colorTextLight;
+        }
+    }
+
+    &__item:not(.first)::before {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 130px;
+        left: 0;
+        top: calc(50% - 65px);
+        border: 1px solid $colorLogo;
+    }
+}
+
+.small-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+
+    .small-content__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        &_head {
+            font-family: "DM Serif Display";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 50px;
+            line-height: 125%;
+            display: block;
+            letter-spacing: 0.02em;
+            color: $colorTextBasic;
+        }
+        &_text {
+            width: 811px;
+            font-family: "Jost";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 150%;
+            display: block;
+            letter-spacing: 0.01em;
+            color: $colorTextLight;
+        }
+    }
+
+    .small-content__card-box {
+        .small-card {
+            width: 382px;
+            height: 521px;
+            padding: 20px;
+            border: 1px solid $colorSmallCardBorder;
+            box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.25);
+            border-radius: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            gap: 21px;
+
+            &__img {
+                width: 340px;
+                height: 289.27px;
+                background: url("../img/small-card__Photo1.png");
+                border-radius: 45px 45px 0px 0px;
+
+                &_description {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 124px;
+                    height: 41px;
+                    margin-left: 20px;
+                    margin-top: 228px;
+                    background: $colorBacgroundMain;
+                    border-radius: 8px 8px 8px 0px;
+                    font-family: "Jost";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 150%;
+                    letter-spacing: 0.01em;
+                    text-transform: capitalize;
+                    color: $colorTextLight;
+                }
+            }
+            &__content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column;
+                gap: 30px;
+
+                &_header {
+                }
+            }
+            &__date-btn-box {
+                width: 340px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                &_text {
+                    font-family: "Jost";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 150%;
+                    display: block;
+                    letter-spacing: 0.01em;
+                    text-transform: capitalize;
+
+                    color: $colorTextLight;
+                }
+
+                &_btn {
+                    height: 52px;
+                    width: 52px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 26px;
+                    border: none;
+                }
+
+                &_btn:not(.negative) {
+                    background: $colorBacgroundBtnBigCard;
+                }
+
+                &_btn.negative {
+                    background: $colorBacgroundMain;
+                }
+
+                &_btn svg {
+                    width: 9;
+                    height: 16;
+                }
+
+                &_btn svg path {
+                    stroke: $colorTextBasic;
+                }
+            }
+        }
+
+        // .small-card:not(.negative) {
+        //     background: $colorBacgroundMain;
+        //     &__date-btn-box {
+        //         &_btn {
+        //             background: $colorBacgroundBtnBigCard;
+        //         }
+        //     }
+        // }
+
+        .negative {
+            background: $colorBacgroundBtnBigCard;
+            .small-card__date-btn-box {
+                &_btn.negative {
+                    background: $colorBacgroundMain;
+                }
             }
         }
     }
