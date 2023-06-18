@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homework 2</title>
+    </head>
+    <body>
+        <div id="app">
+            <label>Enter count of goods to generate</label>
+            <input
+                type="number"
+                min="0"
+                max="100"
+                v-model="num"
+            >
+            <button v-on:click="generateList()">Create list of goods</button>
+            <h4>List of goods</h4>
+            <ul>
+                <li v-for="item in products" :key="item.id">ID: {{item.id}} -> {{item.name}} cost: {{item.prise}}$</li>
+            </ul>
+            <button v-on:click="directSort()">Direct Sort &#8595;</button>
+            <button v-on:click="reverseSort()">Reverse Sort &#8593;</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    products: [],
+                    num: 0,
+                },
+                methods: {
+                    generateList() {
+                        for (let i = 1; i <= this.num; i++) {
+                            this.products.push({
+                                id: i,
+                                name: `Product ${i}`,
+                                prise: Math.floor(Math.random() * 1000),
+                            })
+                            
+                        }
+                    },
+                    directSort() {
+                        this.products.sort((a, b) => a.prise - b.prise)
+                    },
+                    reverseSort() {
+                        this.products.sort((a, b) => b.prise - a.prise)
+                    },
+                },
+            })
+        </script>
+    </body>
+</html>

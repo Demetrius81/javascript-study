@@ -27,9 +27,9 @@
                         </a>
                     </div>
                     <div class="header__links">
-                        <a class="header__links_link" href="#">Home</a>
-                        <a class="header__links_link" href="#">Project</a>
-                        <a class="header__links_link" href="#">Blog</a>
+                        <a class="header__links_link" href="index.html">Home</a>
+                        <a class="header__links_link" href="project.html">Project</a>
+                        <a class="header__links_link" href="blog.html">Blog</a>
                     </div>
                 </header>
                 <section class="greetings center">
@@ -212,79 +212,20 @@ lorem Ipsum fromavailable, majority.
                         <p class="small-content__header_text">It is a long established fact that a reader will be distracted by the of readable content of a page when lookings at its layouts the points of using.</p>
                     </div>
                     <div class="small-content__card-box">
-                        <div class="small-card">
+                        <div
+                            class="small-card"
+                            v-for="item in smallCardBox"
+                            :key="item.id"
+                            v-bind:class="{negative: checkIsNegative(item.id)}"
+                        >
                             <div class="small-card__img">
-                                <img src="../Interno/img/small-card__Photo1.png" alt="Photo1">
-                                <p class="small-card__img_description">Kitchan Design</p>
+                                <img v-bind:src="item.img" v-bind:alt="item.imgDescription">
+                                <p class="small-card__img_description">{{item.imgDescription}}</p>
                             </div>
                             <div class="small-card__content">
-                                <h2 class="small-card__content_header">Let’s Get Solution For Building Construction Work</h2>
+                                <h2 class="small-card__content_header">{{item.title}}</h2>
                                 <div class="small-card__date-btn-box">
-                                    <p class="small-card__date-btn-box_text">22 December,2022</p>
-                                    <button class="small-card__date-btn-box_btn">
-                                        <svg
-                                            width="9"
-                                            height="16"
-                                            viewBox="0 0 9 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                                                stroke="#292F36"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="small-card negative">
-                            <div class="small-card__img">
-                                <img src="../Interno/img/small-card__Photo2.png" alt="Photo1">
-                                <p class="small-card__img_description">Living Design</p>
-                            </div>
-                            <div class="small-card__content">
-                                <h2 class="small-card__content_header">
-                                    Low Cost Latest Invented Interior Designing
-Ideas.
-                                </h2>
-                                <div class="small-card__date-btn-box">
-                                    <p class="small-card__date-btn-box_text">22 December,2022</p>
-                                    <button class="small-card__date-btn-box_btn">
-                                        <svg
-                                            width="9"
-                                            height="16"
-                                            viewBox="0 0 9 16"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M1.77144 14.9527L7.71429 8.267L1.77144 1.58128"
-                                                stroke="#292F36"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="small-card">
-                            <div class="small-card__img">
-                                <img src="../Interno/img/small-card__Photo3.png" alt="Photo3">
-                                <p class="small-card__img_description">Interior Design</p>
-                            </div>
-                            <div class="small-card__content">
-                                <h2 class="small-card__content_header">
-                                    Best For Any Office & Business Interior 
-Solution
-                                </h2>
-                                <div class="small-card__date-btn-box">
-                                    <p class="small-card__date-btn-box_text">22 December,2022</p>
+                                    <p class="small-card__date-btn-box_text">{{item.date}}</p>
                                     <button class="small-card__date-btn-box_btn">
                                         <svg
                                             width="9"
@@ -367,5 +308,44 @@ Solution
                 </footer>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    smallCardBox: [
+                        {
+                            id: 1,
+                            img: '../Interno/img/small-card__Photo1.png',
+                            imgDescription: 'Kitchan Design',
+                            title: 'Let’s Get Solution For Building Construction Work',
+                            date: '26 December,2022 ',
+                        },
+                        {
+                            id: 2,
+                            img: '../Interno/img/small-card__Photo2.png',
+                            imgDescription: 'Living Design',
+                            title: 'Low Cost Latest Invented Interior Designing Ideas.',
+                            date: '22 December,2022 ',
+                        },
+                        {
+                            id: 3,
+                            img: '../Interno/img/small-card__Photo3.png',
+                            imgDescription: 'Interior Design',
+                            title: 'Best For Any Office & Business Interior Solution',
+                            date: '25 December,2022 ',
+                        },
+                    ],
+                },
+                methods: {
+                    checkIsNegative(id) {
+                        return id === 2; 
+                    },
+
+                },
+                computed: {
+                },
+            })
+        </script>
     </body>
 </html>
