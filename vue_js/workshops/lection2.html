@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Workshops
+        </title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .block {
+                width: 350px;
+                height: 200px;
+            }
+            #app {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 18px;
+            }
+            .like {
+                background: greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <h1>Директива v-on</h1>
+                <input type="text" @keyup.enter="send()">
+                <button @click="send()">Send</button>
+
+                <h1>Директива v-bind</h1>
+                <h2>Link Element</h2>
+                <a :href="linkHref">my new page</a><br>
+                <img :src="imgPhoto" :alt="imgAlt">
+                <div class="block" :style="styleBlock">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, aliquid.</div>
+                <h1>Директива v-model</h1>
+                <h2>{{modelData}}</h2>
+                <input type="text" v-model="modelData">
+                <button @click="headingText()" class="heading__button">click heading</button>
+                <h2>Калькулятор</h2>
+                <input type="text" v-model.number="firstNum">
+                <input type="text" v-model.number="secondNum">
+                =
+                {{result}}
+                <div>
+                    <button @click="plus">+</button>
+                    <button @click="minus">-</button>
+                    <button @click="mult">*</button>
+                    <button @click="div">/</button>
+                </div>
+                    <h1>Вычисляемые свойства</h1>
+                    <h2>калькулятор</h2>
+                    <input type="text" v-model="blockWidth">
+                    <input type="text" v-model="blockColor">
+                    <div class="block" :style="chenge">
+                </div>
+            
+            </div>
+            <div>
+                <h1>Директива v-for</h1>
+                <h2>Отрисовка списков</h2>
+                <h2>list</h2>
+                <ul>
+                    <li v-for="item in listItems" :key="item.id">{{item}}</li>
+                </ul>
+                <input type="text" v-model="newList" @keyup.enter="addItem">
+                <h2>Отрисовка элементов</h2>
+                <article v-for="article in dataArticle" :key="article.id" class="article">
+                    <h2 class="article__title">{{article.title}}</h2>
+                    <p class="article__text">{{article.text}}</p>
+                    <button class="btn" :class="{like: article.like}" @click="article.like = !article.like">like</button>
+                </article>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!-- <script src="workshop1.js"></script> -->
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    firstNum: 0,
+                    secondNum: 0,
+                    result: 0,
+                    linkHref: 'card.html',
+                    imgPhoto: 'photo.jpg',
+                    imgAlt: 'Photo',
+                    styleBlock: {
+                        backgroundColor: 'green',
+                        color: 'red'
+                    },
+                    modelData: '',
+                    blockWidth: '100',
+                    blockColor: '#ccc',
+                    blockStyle: {
+
+                    },
+                    listItems: [1, 2, 3,],
+                    newList: '',
+                    dataArticle: [
+                        {
+                            title: 'title text',
+                            text: 'description text info element',
+                            like: false,
+                        },
+                        {
+                            title: 'new title text',
+                            text: 'new description text info element',
+                            like: false,
+                        },
+                        {
+                            title: 'super new title text',
+                            text: 'super new description text info element',
+                            like: false,
+                        },
+                ],
+                },
+                methods: {
+                    send() {
+                        console.log('Отправили данные внутри инпут');
+                    },
+                    headingText() {
+                        if (this.modelData === '') {
+                            this.modelData = 'heading'
+                        }
+                    },
+                    plus() {
+                        this.result = this.firstNum + this.secondNum;
+                    },
+                    minus() {
+                        this.result = this.firstNum - this.secondNum;
+                    },
+                    mult() {
+                        this.result = this.firstNum * this.secondNum;
+                    },
+                    div() {
+                        this.result = this.firstNum / this.secondNum;
+                    },
+                    addItem() {
+                        this.listItems.push(this.newList);
+                        this.newList = '';
+                    },
+                    
+                },
+                computed: {
+                    chenge() {
+                        return {
+                            width: `${this.blockWidth}px`,
+                            height: `${this.blockWidth}px`,
+                            backgroundColor: `${this.blockColor}`,
+                        }
+                    },
+                },
+            })
+        </script>
+    </body>
+</html>
