@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Workshop 2</title>
+        <link rel="stylesheet" href="./style/workshop2.css">
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <h1>Task 1</h1>
+            <div class="box">
+                <div class="product" v-for="item in products" :key="item.id">
+                    <img class="product__img" v-bind:src="item.url" alt="item.title">
+                    <h4 class="product__title">{{item.title}}</h4>
+                    <div class="product__box">
+                        <p class="product__box_price">Price: {{item.price}}$</p>
+                        <button class="product__box_btn" v-on:click="getDiscount(item)" v-if="!item.discountReceived">Get discount</button>
+                        <button class="product__box_btn" v-else="item.discountReceived" v-bind:class="{discount: item.discountReceived}">Get discount</button>
+                    </div>
+                </div>
+            </div>
+            <h1>Task 2</h1>
+            <div>
+                <ul>
+                    <li v-for="user in users" :key="user.id">User {{user.id}}: {{user.name}}, age: {{user.age}}</li>
+                </ul>
+            </div>
+            <h1>Task 3</h1>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Название продукта"
+                    v-on:keyup.enter="addProduct()"
+                    v-model="product"
+                >
+                <button v-on:click="addProduct()">Добавить в список</button>
+                <ul>
+                    <li v-for="item in shopping" :key="item.id">
+                        {{item.id}}
+                        <input type="number" min="0" v-model="item.count">
+                        <label>
+                            <input type="checkbox" v-bind:id="item.id" v-bind:checked="item.bought">
+                            {{item.product}}
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <h1>Task 4</h1>
+            <div>
+                <form action="#" v-on:submit.prevent="addContact()">
+                    <label for="name">Имя:</label>
+                    <br>
+                    <input
+                        id="name"
+                        name="name"
+                        placeholder="Введите имя"
+                        type="text"
+                        v-model="name"
+                    >
+                    <br>
+                    <label for="lastname">Фамилия:</label>
+                    <br>
+                    <input
+                        id="lastname"
+                        name="lastname"
+                        placeholder="Введите фамилию"
+                        type="text"
+                        v-model="lastName"
+                    >
+                    <br>
+                    <label for="email">Имя:</label>
+                    <br>
+                    <input
+                        id="email"
+                        name="email"
+                        placeholder="Введите email"
+                        type="email"
+                        v-model="email"
+                    >
+                    <br>
+                    <button type="submit">Добавить контакт</button>
+                </form>
+                <ul>
+                    <li v-for="item in contacts" :key="item.id">{{item.name}} {{item.lastName}} - {{item.email}}</li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    products: [
+                        {
+                            price: 200,
+                            title: 'Product 1',
+                            url: './img/pic1_200x200.jpeg',
+                            discountReceived: false,
+                        },
+                        {
+                            price: 300,
+                            title: 'Product 2',
+                            url: './img/pic2_200x200.jpeg',
+                            discountReceived: false,
+
+                        },
+                        {
+                            price: 500,
+                            title: 'Product 3',
+                            url: './img/pic3_200x200.jpeg',
+                            discountReceived: false,
+
+                        },
+
+                    ],
+                    users: [
+                        {
+                            id: 1,
+                            name: 'John Conrod',
+                            age: 25,
+                        },
+                        {
+                            id: 2,
+                            name: 'Henry Thompson',
+                            age: 42,
+                        },
+                        {
+                            id: 3,
+                            name: 'Philip Adisson',
+                            age: 19,
+                        },
+                    ],
+                    shopping: [
+                        {
+                            id: 1,
+                            product: 'Молоко',
+                            count: 1,
+                            bought: true,
+                        },
+                        {
+                            id: 2,
+                            product: 'Хлеб',
+                            count: 3,
+                            bought: false,
+                        }
+                    ],
+                    product: '',
+                    name: '',
+                    lastName: '',
+                    email: '',
+                    contacts: [
+                        {
+                            id: 1,
+                            name: 'John',
+                            lastName: 'Silver',
+                            email: 'black@pearl.crb'
+                        }
+                    ],
+                },
+                methods: {
+                    getDiscount(item) {
+                        item.discountReceived = true;
+                        const min = Math.ceil(1);
+                        const max = Math.floor(21);
+                        item.price = (item.price * ((100 - (Math.floor(Math.random() * (max - min)) + min)) / 100)).toFixed(2);
+                    },
+                    addProduct() {
+                        this.shopping.push({
+                            id: this.shopping.at(-1).id + 1,
+                            product: this.product,
+                            count: 0,
+                            bought: false,
+                        });
+                        this.product = '';
+                    },
+                    addContact() {
+                        if (this.name !== '' && this.lastName !== '' && this.email !== '') {
+                            this.contacts.push({
+                                id: this.contacts.at(-1) + 1,
+                                name: this.name.trim(),
+                                lastName: this.lastname.trim(),
+                                email: this.email.trim(),
+                            });
+                            this.name = '';
+                            this.lastName = '';
+                            this.email = '';
+                        }
+                    },
+                },
+            })
+        </script>
+    </body>
+</html>
