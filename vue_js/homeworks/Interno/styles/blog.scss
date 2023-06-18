@@ -86,7 +86,12 @@
 }
 
 //eee
-
+.article-header {
+    margin-bottom: 200px;
+}
+.latest-post {
+    margin-bottom: 150px;
+}
 //eee
 
 .small-content {
@@ -94,13 +99,13 @@
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    margin-bottom: 96px;
+    margin-bottom: 200px;
 
-    .small-content__header {
+    &__header {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        flex-flow: column;
+        flex-flow: row;
         gap: 12px;
         margin-bottom: 52px;
         &_head {
@@ -126,7 +131,7 @@
         }
     }
 
-    .small-content__card-box {
+    &__card-box {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -246,6 +251,13 @@
                 }
             }
         }
+    }
+
+    &__pagination {
+        margin-top: 51px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
