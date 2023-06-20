@@ -1,0 +1,259 @@
+@media (max-width: 1240px) and (min-width: 768px) {
+    .nav {
+        padding-left: calc(50% - $site768Laptop / 2);
+        padding-right: calc(50% - $site768Laptop / 2);
+    }
+
+    .center {
+        padding-left: calc(50% - $site768Laptop / 2);
+        padding-right: calc(50% - $site768Laptop / 2);
+    }
+
+    .subheader {
+        &__box {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    // eeeeeee
+
+    .registration {
+        gap: 22px;
+        padding-top: 40px;
+        padding-bottom: 96px;
+
+        &__description {
+            max-width: 354px;
+
+            &__title {
+                font-size: 16px;
+                line-height: 19px;
+                padding-bottom: 10px;
+            }
+
+            &__text {
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            &__list li {
+                padding-bottom: 16px;
+            }
+        }
+    }
+
+    // eeeeeeee
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 53px;
+                padding-bottom: 140px;
+                gap: 48px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site768Laptop;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+    .nav {
+        padding-left: calc(50% - $site375Mobile / 2);
+        padding-right: calc(50% - $site375Mobile / 2);
+        justify-content: space-between;
+
+        &__left {
+            margin-right: 0px;
+        }
+
+        &__right {
+            justify-content: flex-end;
+        }
+
+        &__user {
+            display: none;
+        }
+
+        &__basket {
+            display: none;
+        }
+
+        .basket {
+            &__count::after {
+                display: none;
+            }
+        }
+    }
+
+    .center {
+        padding-left: calc(50% - $site375Mobile / 2);
+        padding-right: calc(50% - $site375Mobile / 2);
+    }
+
+    .subheader {
+        &__box {
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+            padding-top: 24px;
+            padding-bottom: 46px;
+            gap: 32px;
+        }
+    }
+
+    //eee
+
+    .registration {
+        flex-flow: column;
+        gap: 40px;
+        padding-top: 40px;
+        padding-bottom: 80px;
+
+        &__form {
+            padding-left: 5px;
+
+            &__label {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 19px;
+                color: #222222;
+            }
+
+            &__input {
+                padding-top: 4px;
+                width: 360px;
+                height: 45px;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 13px;
+                line-height: 16px;
+                color: #b1b1b1;
+                border: 1px solid #a4a4a4;
+                background: #ffffff;
+            }
+
+            &__radio_label {
+                font-style: normal;
+                font-weight: 300;
+                font-size: 11px;
+                line-height: 13px;
+                color: #000000;
+            }
+
+            &__radio_input {
+                padding-top: 18px;
+                padding-bottom: 18px;
+                border: 1px solid #a4a4a4;
+            }
+
+            &__memo {
+                max-width: 360px;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 13px;
+                line-height: 16px;
+                color: #b1b1b1;
+            }
+
+            &__join_box {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &__join {
+                margin-top: 23px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #ffffff;
+                background: $pinkColor;
+                padding: 16px 29px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                & span {
+                    padding-left: 20px;
+                    transition: all 0.3s ease;
+                }
+
+                &:hover {
+                    background: #ffffff;
+                    color: $pinkColor;
+                    border: 1px solid $pinkColor;
+
+                    & span svg path {
+                        fill: $pinkColor;
+                    }
+                }
+            }
+        }
+
+        &__description {
+            padding-left: 5px;
+            margin-bottom: 10px;
+            max-width: 652px;
+
+            gap: 21px;
+
+            &__title {
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+            &__text {
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+    }
+
+    //eee
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 54px;
+                padding-bottom: 110px;
+                gap: 59px;
+            }
+
+            &__text {
+                font-size: 18px;
+                line-height: 22px;
+                width: 343px;
+            }
+
+            &__form {
+                gap: 22px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column-reverse wrap;
+                justify-content: center;
+                gap: 40px;
+                padding-top: 43px;
+                padding-bottom: 9px;
+            }
+        }
+    }
+}

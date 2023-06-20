@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <new-component title="Title from attribute"></new-component>
+            <new-component title="Title from attribute"></new-component> -->
+            <button v-on:click="currentTab = nameButton" v-for="nameButton in nameButtons" :key="nameButton.id">{{nameButton}}</button>
+            <component :is="compName"></component>
+            <!-- <some-comps></some-comps> -->
+            <!-- <std-comp></std-comp> -->
+            <!-- <new-component
+                :article="article"
+                :title="title"
+                v-for="article in articles"
+                :key="article.id"
+            ></new-component> -->
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="./script/lection3.js"></script>
+        <script>
+            "use strict";
+
+            new Vue({
+                el: '#app',
+                data: {
+                   message: 'text message',
+                   title: 'Title from root',
+                   articles: ['info article - 1', 'info article - 2', 'info article - 3'],
+                   counter: 0,
+                   nameButtons: ['one', 'two', 'three'],
+                   currentTab: 'one',
+                },
+                methods: {
+                    newInfo() {
+                        console.log('Hello methods');
+                    },
+                },
+                computed: {
+                    anotherMessage() {
+                        return 'Another ' + this.message; 
+                    },
+                    compName() {
+                        return `change-${this.currentTab}`;
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

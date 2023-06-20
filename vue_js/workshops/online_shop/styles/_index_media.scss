@@ -1,0 +1,298 @@
+@media (max-width: 1240px) and (min-width: 768px) {
+    .nav {
+        padding-left: calc(50% - $site768Laptop / 2);
+        padding-right: calc(50% - $site768Laptop / 2);
+    }
+
+    .header {
+        &__img {
+            width: 385px;
+        }
+
+        &__man {
+            max-width: 385px;
+            max-height: 370px;
+        }
+
+        &__title {
+            margin-left: 40px;
+        }
+
+        &__huge-title {
+            font-size: 44px;
+            line-height: 53px;
+        }
+
+        &__big-title {
+            font-size: 24px;
+            line-height: 29px;
+        }
+    }
+
+    .menu {
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 155px;
+
+        &__item {
+            min-width: 0px;
+            min-height: 0px;
+            max-width: 233px;
+            max-height: 167px;
+
+            &__img {
+                min-width: 0px;
+                min-height: 0px;
+                max-width: 233px;
+                max-height: 167px;
+            }
+
+            &__img__long {
+                min-width: 0px;
+                min-height: 0px;
+                max-width: 734px;
+                max-height: 116px;
+            }
+        }
+
+        &__item-4 {
+            max-width: 734px;
+            min-height: 116px;
+        }
+    }
+
+    .shop {
+        @include flexCenterCenterColumn();
+        gap: 48px;
+
+        &__title {
+            @include flexCenterCenterColumn();
+
+            &__not_small {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 36px;
+                color: #222222;
+                padding-bottom: 6px;
+            }
+
+            &__text {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 17px;
+                color: #9f9f9f;
+            }
+        }
+
+        &__cards {
+            padding-top: 74px;
+            padding-bottom: 48px;
+            grid-template: repeat(3, 581px) / repeat(2, 360px);
+            gap: 16px 16px;
+            place-content: center center;
+            place-items: center center;
+        }
+
+        &__browse {
+            padding-bottom: 65px;
+        }
+    }
+
+    //eee
+
+    .questions {
+        &__end_links {
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 48px;
+            margin-bottom: 64px;
+            gap: 48px;
+        }
+    }
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 53px;
+                padding-bottom: 140px;
+                gap: 48px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site768Laptop;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+    .nav {
+        padding-left: calc(50% - $site375Mobile / 2);
+        padding-right: calc(50% - $site375Mobile / 2);
+        justify-content: space-between;
+
+        &__left {
+            margin-right: 0px;
+        }
+
+        &__right {
+            justify-content: flex-end;
+        }
+
+        &__user {
+            display: none;
+        }
+
+        &__basket {
+            display: none;
+        }
+
+        .basket {
+            &__count::after {
+                display: none;
+            }
+        }
+    }
+
+    .header {
+        &__man {
+            display: none;
+        }
+
+        &__title {
+            margin-left: 56px;
+            margin-top: 148px;
+            margin-bottom: 148px;
+        }
+
+        &__huge-title {
+            font-size: 38px;
+            line-height: 46px;
+        }
+
+        &__big-title {
+            font-size: 20px;
+            line-height: 24px;
+        }
+    }
+
+    //eee
+
+    .menu {
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 64px;
+
+        &__item {
+            min-width: 0px;
+            min-height: 0px;
+            width: 343px;
+            height: 247px;
+            &__img {
+                min-width: 0px;
+                min-height: 0px;
+                width: 343px;
+                height: 247px;
+            }
+
+            &__img__long {
+                min-width: 0px;
+                min-height: 0px;
+                display: none;
+                width: 0px;
+                height: 0px;
+                min-width: 0px;
+                min-height: 0px;
+            }
+
+            &__img__mobile {
+                display: block;
+                position: relative;
+                width: 343px;
+                height: 111px;
+                opacity: 0.4;
+            }
+        }
+
+        &__item-4 {
+            width: 343px;
+            max-height: 111px;
+            min-height: 0px;
+            min-width: 0px;
+        }
+    }
+
+    .shop {
+        gap: 0px;
+
+        &__cards {
+            padding-top: 64px;
+            padding-bottom: 41px;
+            display: flex;
+            flex-flow: column;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__browse {
+            padding-bottom: 96px;
+        }
+    }
+
+    //eee
+
+    .questions {
+        &__end_links {
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 48px;
+            margin-bottom: 64px;
+            gap: 48px;
+        }
+    }
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 54px;
+                padding-bottom: 110px;
+                gap: 59px;
+            }
+
+            &__text {
+                font-size: 18px;
+                line-height: 22px;
+                width: 343px;
+            }
+
+            &__form {
+                gap: 22px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column-reverse wrap;
+                justify-content: center;
+                gap: 40px;
+                padding-top: 43px;
+                padding-bottom: 9px;
+            }
+        }
+    }
+}
