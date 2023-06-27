@@ -76,10 +76,11 @@ export default {
         for (let i = 0; i < this.creditPeriod; i++) {
           payments.push({
             id: i + 1,
-            sum:
+            sum: (
               this.calcBalanceOwned(this.creditPeriod - i) *
                 this.percentagePerMonth +
-              this.amountOfCredit / this.creditPeriod,
+              this.amountOfCredit / this.creditPeriod
+            ).toFixed(2),
           });
         }
 
@@ -90,7 +91,11 @@ export default {
     },
     totalPayment() {
       if (this.calculateThis) {
-        return this.monthlyPayment.reduce((sum, elem) => sum + elem.sum, 0);
+        let sum = 0;
+        for (let i = 0; i < this.monthlyPayment.length; i++) {
+          sum += +this.monthlyPayment[i].sum;
+        }
+        return sum;
       } else {
         return 0;
       }
