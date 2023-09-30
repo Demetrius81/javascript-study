@@ -1,0 +1,34 @@
+.box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.product {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-flow: column;
+  padding: 10px;
+  background: yellowgreen;
+}
+.product__img {
+  width: 200px;
+  height: 200px;
+}
+.product__box {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product__box_price {
+  display: block;
+}
+
+.discount {
+  border: none;
+  background: #fff;
+  color: grey;
+}/*# sourceMappingURL=workshop2.css.map */
