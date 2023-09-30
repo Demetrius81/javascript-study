@@ -1,0 +1,17 @@
+$siteDesktopWidth: 1140px;
+$site768Laptop: 768px;
+$site375Mobile: 375px;
+$pinkColor: #f16d7f;
+$burgerMenuWidth: 232px;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flexCenterCenterColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}

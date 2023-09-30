@@ -1,0 +1,189 @@
+@media (max-width: 1240px) and (min-width: 768px) {
+    .nav {
+        padding-left: calc(50% - $site768Laptop / 2);
+        padding-right: calc(50% - $site768Laptop / 2);
+    }
+
+    .center {
+        padding-left: calc(50% - $site768Laptop / 2);
+        padding-right: calc(50% - $site768Laptop / 2);
+    }
+
+    .subheader {
+        &__box {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+
+    //eee
+
+    .content {
+        &__picture {
+            padding-left: calc(50% - $site768Laptop / 2);
+            padding-right: calc(50% - $site768Laptop / 2);
+
+            &__box {
+                &__img {
+                    width: $site768Laptop;
+                    height: 624px;
+                }
+            }
+        }
+
+        &__box {
+            max-width: 768px;
+        }
+
+        &__cards {
+            gap: 16px;
+
+            .card:last-child {
+                display: none;
+            }
+        }
+    }
+
+    //eee
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 53px;
+                padding-bottom: 140px;
+                gap: 48px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site768Laptop;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+    .nav {
+        padding-left: calc(50% - $site375Mobile / 2);
+        padding-right: calc(50% - $site375Mobile / 2);
+        justify-content: space-between;
+
+        &__left {
+            margin-right: 0px;
+        }
+
+        &__right {
+            justify-content: flex-end;
+        }
+
+        &__user {
+            display: none;
+        }
+
+        &__basket {
+            display: none;
+        }
+
+        .basket {
+            &__count::after {
+                display: none;
+            }
+        }
+    }
+
+    .center {
+        padding-left: calc(50% - $site375Mobile / 2);
+        padding-right: calc(50% - $site375Mobile / 2);
+    }
+
+    .subheader {
+        &__box {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            padding-top: 24px;
+            padding-bottom: 46px;
+            gap: 32px;
+        }
+    }
+
+    //eee
+
+    .content {
+        &__picture {
+            padding-left: calc(50% - $site375Mobile / 2);
+            padding-right: calc(50% - $site375Mobile / 2);
+
+            &__box {
+                &__img {
+                    width: $site375Mobile;
+                    height: 624px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & img {
+                        width: 374px;
+                        height: 454px;
+                    }
+                }
+            }
+        }
+
+        &__box {
+            max-width: $site375Mobile;
+        }
+
+        &__product__choise_menu__right__details__text {
+            font-size: 10px;
+            line-height: 12px;
+        }
+
+        &__cards {
+            flex-flow: column;
+            gap: 16px;
+            padding-bottom: 64px;
+        }
+    }
+
+    //eee
+
+    .footer {
+        .subscribe-main {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column wrap;
+                justify-content: center;
+                align-items: center;
+                padding-top: 54px;
+                padding-bottom: 110px;
+                gap: 59px;
+            }
+
+            &__text {
+                font-size: 18px;
+                line-height: 22px;
+                width: 343px;
+            }
+
+            &__form {
+                gap: 22px;
+            }
+        }
+
+        .copy {
+            &__box {
+                min-width: $site375Mobile;
+                flex-flow: column-reverse wrap;
+                justify-content: center;
+                gap: 40px;
+                padding-top: 43px;
+                padding-bottom: 9px;
+            }
+        }
+    }
+}
