@@ -1,20 +1,40 @@
 <template>
   <div id="app">
-    <calc-funtion></calc-funtion>
+    <payments-display :items="paymentList"></payments-display>
+    <add-list @addNewPay="addNewPay"></add-list>
   </div>
 </template>
 
 <script>
-import CalcFuntion from './components/CalcFuntion.vue'
-
+import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
+import AddList from "./components/AddList.vue";
+import PaymentsDisplay from "./components/PaymentsDisplay.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+
   components: {
-    CalcFuntion
-    
-  }
-}
+    PaymentsDisplay,
+    AddList,
+  },
+
+  methods: {
+    addNewPay(data) {
+      this.ADD_PAYMENT(data);
+    },
+    ...mapMutations(["SET_PAYMENT", "ADD_PAYMENT"]),
+  },
+
+  computed: {
+    ...mapState(["paymentList"]),
+    ...mapGetters(["getPayment", "getFullPayment"]),
+    ...mapActions(["fetchData"]),
+  },
+
+  created() {
+    this.SET_PAYMENT(this.fetchData());
+  },
+};
 </script>
 
 <style>
