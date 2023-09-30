@@ -1,0 +1,577 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Jost&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.bacground {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, #fff calc(50% - 600px), #e6e6e6 calc(50% - 600px), #e6e6e6 calc(50% - 600px + 1px), #fff calc(50% - 600px + 1px), #fff calc(50% - 600px + 399px), #e6e6e6 calc(50% - 600px + 399px), #e6e6e6 calc(50% - 600px + 400px), #fff calc(50% - 600px + 400px), #fff calc(50% - 600px + 799px), #e6e6e6 calc(50% - 600px + 799px), #e6e6e6 calc(50% - 600px + 800px), #fff calc(50% - 600px + 800px), #fff calc(50% - 600px + 1199px), #e6e6e6 calc(50% - 600px + 1199px), #e6e6e6 calc(50% - 600px + 1200px), #fff calc(50% - 600px + 1200px));
+}
+
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+.logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.logo_link svg {
+  width: 34px;
+  height: 34px;
+}
+.logo_link svg path {
+  fill: #cda274;
+}
+.logo_link span {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #292f36;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 61px;
+  padding-bottom: 57px;
+  z-index: 1;
+}
+.header__links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 40px;
+}
+.header__links_link {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #292f36;
+}
+
+.greetings__box {
+  width: 1200px;
+  height: 758px;
+  background: url("../img/greetings__photo.png");
+  background-size: contain;
+  border-radius: 70px;
+}
+.greetings__content {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-flow: column wrap;
+  gap: 19px;
+  padding-left: 52px;
+  padding-top: 208px;
+}
+.greetings__content_header {
+  max-width: 433px;
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 65px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #292f36;
+}
+.greetings__content_text {
+  max-width: 433px;
+  color: #4d5053;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  margin-bottom: 3px;
+}
+.greetings__button {
+  width: 220.14px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  gap: 10px;
+  background: #292f36;
+  border-radius: 18px;
+  box-shadow: 0px 10px 20px rgba(192, 192, 192, 0.3490196078);
+  border: none;
+}
+.greetings__button_text {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.greetings__button_arrow svg {
+  width: 19px;
+  height: 17px;
+}
+.greetings__button_arrow svg path {
+  stroke: #cda274;
+}
+
+.large-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.large-content__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 8px;
+}
+.large-content__header_head {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 125%;
+  display: block;
+  letter-spacing: 0.02em;
+  color: #292f36;
+  max-width: 451px;
+  padding-top: 96px;
+}
+.large-content__header_description {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+  width: 737px;
+  padding-bottom: 93px;
+}
+.large-content__card-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 60px 102px;
+}
+.large-content__card-box .big-card {
+  width: 548px;
+  height: 619px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column;
+}
+.large-content__card-box .big-card__img {
+  overflow: hidden;
+  width: 548px;
+  height: 525px;
+  background: #c4c4c4;
+  border-radius: 0px 80px 0px 0px;
+}
+.large-content__card-box .big-card__box-content {
+  width: 548px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+}
+.large-content__card-box .big-card__content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+}
+.large-content__card-box .big-card__content_header {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #292f36;
+}
+.large-content__card-box .big-card__content_text {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+}
+.large-content__card-box .big-card__button {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f0ec;
+}
+.large-content__card-box .big-card__button svg {
+  width: 10px;
+  height: 20px;
+}
+.large-content__card-box .big-card__button svg path {
+  stroke: #292f36;
+}
+
+.statistics {
+  background: #f4f0ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 151px;
+  padding-bottom: 151px;
+  margin-top: 101px;
+  margin-bottom: 96px;
+}
+.statistics__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+.statistics__item {
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 16px;
+}
+.statistics__item_header {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 85px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #cda274;
+}
+.statistics__item_description {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+}
+.statistics__item:not(.first)::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 130px;
+  left: 0;
+  top: calc(50% - 65px);
+  border: 1px solid #cda274;
+}
+
+.small-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  margin-bottom: 96px;
+}
+.small-content .small-content__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 12px;
+  margin-bottom: 52px;
+}
+.small-content .small-content__header_head {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 125%;
+  display: block;
+  letter-spacing: 0.02em;
+  color: #292f36;
+}
+.small-content .small-content__header_text {
+  width: 811px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: block;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+}
+.small-content .small-content__card-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 27px;
+}
+.small-content .small-content__card-box .small-card {
+  width: 382px;
+  height: 521px;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.25);
+  border-radius: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 21px;
+  background: #fff;
+}
+.small-content .small-content__card-box .small-card__img {
+  position: relative;
+  overflow: hidden;
+  width: 340px;
+  height: 289.27px;
+  background: #eaeaea;
+  border-radius: 45px 45px 0px 0px;
+}
+.small-content .small-content__card-box .small-card__img_description {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 124px;
+  height: 41px;
+  background: #fff;
+  border-radius: 8px 8px 8px 0px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #4d5053;
+  left: 20px;
+  top: 228px;
+}
+.small-content .small-content__card-box .small-card__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 30px;
+}
+.small-content .small-content__card-box .small-card__content_header {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: #292f36;
+}
+.small-content .small-content__card-box .small-card__date-btn-box {
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.small-content .small-content__card-box .small-card__date-btn-box_text {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  display: block;
+  letter-spacing: 0.01em;
+  text-transform: capitalize;
+  color: #4d5053;
+}
+.small-content .small-content__card-box .small-card__date-btn-box_btn {
+  height: 52px;
+  width: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26px;
+  border: none;
+  background: #f4f0ec;
+}
+.small-content .small-content__card-box .small-card__date-btn-box_btn svg {
+  width: 9;
+  height: 16;
+}
+.small-content .small-content__card-box .small-card__date-btn-box_btn svg path {
+  stroke: #292f36;
+}
+.small-content .small-content__card-box .negative {
+  background: #f4f0ec;
+}
+.small-content .small-content__card-box .negative .small-card__date-btn-box_btn {
+  background: #fff;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 117px;
+}
+.footer__header {
+  font-family: "DM Serif Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  color: #292f36;
+}
+.footer__text {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 150%;
+  display: block;
+  letter-spacing: 0.01em;
+  color: #4d5053;
+}
+.footer__page {
+  line-height: 300%;
+  padding: 0px;
+  margin: 0px;
+}
+.footer__links {
+  width: 393px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+  gap: 18px;
+}
+.footer__links_links {
+  margin-top: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 54px;
+}
+.footer__pages {
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+  gap: 6px;
+}
+.footer__services {
+  width: 120px;
+}
+.footer__contacts {
+  width: 258px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column;
+  gap: 26px;
+}/*# sourceMappingURL=style.css.map */

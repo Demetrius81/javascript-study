@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>
+                Task 1
+            </h1>
+            <h4>{{content}}</h4>
+            <button v-on:click="transform()">{{content}}</button>
+            <h1>Task 2 & Task 3</h1>
+            <ul v-for="item in list" :key="item.id" class="list">
+                <li v-on:click="removeElement($event)">{{item.value}}</li>
+            </ul>
+            <button v-on:click="addElement()">Добавить</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    content: "Перевернуть",
+                    list:[
+                        {id: 0, value: 'Элемент списка 0'},
+                        {id: 1, value: 'Элемент списка 1'},
+                        {id: 2, value: 'Элемент списка 2'},
+                    ],
+                },
+                methods: {
+                    transform() {
+                        this.content = this.content.split('').reverse().join('');
+
+                    },                    
+                    addElement() {
+                        if (this.list.length === 0) {
+                            this.list.push({id: 0, value: `Новый элемент списка 0`})
+                        } else {
+                            let num = this.list.at(-1).id + 1;
+                            this.list.push({id: num, value: `Новый элемент списка ${num}`})
+                        }
+                    },
+                    removeElement(event) {
+                        let temp = +event.currentTarget.textContent.split(' ').at(-1)
+                        this.list.splice(this.list.indexOf(this.list.find(x => x.id === temp)), 1);
+                    },
+                },
+            });
+        </script>
+    </body>
+</html>
