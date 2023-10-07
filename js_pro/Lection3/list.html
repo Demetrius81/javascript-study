@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List</title>
+    </head>
+    <body>
+        <div class="app">
+            <input type="text" id="item-input" placeholder="Enter the item">
+            <button id="add-button">Add</button>
+            <ul id="item-list"></ul>
+        </div>
+        <script>
+            const inputEl = document.getElementById("item-input");
+            const btnEl = document.getElementById("add-button");
+            const listEl = document.getElementById("item-list");
+
+            let shoppingList = JSON.parse(localStorage.getItem("shoppingList")) || [];
+
+            const updateShoppingList = () => {
+                listEl.innerHTML = "";
+
+                shoppingList.forEach(item => {
+                    const itemEl = document.createElement("li");
+                    itemEl.textContent = item;
+                    listEl.append(itemEl);
+                });
+
+                localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+            };
+
+            btnEl.addEventListener("click", () => {
+                const newItem = inputEl.value.trim();
+                if (newItem !== '') {
+                    shoppingList.push(newItem);
+                    inputEl.value = "";
+                    updateShoppingList();
+                }
+            });
+
+            updateShoppingList();
+        </script>
+    </body>
+</html>
