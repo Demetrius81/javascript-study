@@ -17,24 +17,24 @@ appEl.insertAdjacentHTML(
     "afterbegin",
     `<h1>Создайте свой мебельный гарнитур</h1>
     <div class="furniture-option">
-        <h2>Стол</h2>
+        <h2 class="table">Стол</h2>
         <label>
             Цвет:
             <select id="table-color">
                 <option value="brown">Коричневый</option>
                 <option value="white">Белый</option>
-                <option value="white">Зеленый</option>
+                <option value="green">Зеленый</option>
             </select>
         </label>
     </div>
     <div class="furniture-option">
-        <h2>Стул</h2>
+        <h2 class="chair">Стул</h2>
         <label>
             Материал:
             <select id="chair-material">
                 <option value="wood">Дерево</option>
                 <option value="metal">Металл</option>
-                <option value="metal">Камень</option>
+                <option value="stone">Камень</option>
             </select>
         </label>
     </div>
@@ -42,3 +42,64 @@ appEl.insertAdjacentHTML(
     <button id="load-btn">Загрузить последний комплект</button>
     <button id="clear-btn">Очистить настройки</button>`
 );
+const tableEl = document.querySelector("#table-color");
+const chairEl = document.querySelector("#chair-material");
+const saveBtn = document.querySelector("#save-btn");
+const loadBtn = document.querySelector("#load-btn");
+const clearBtn = document.querySelector("#clear-btn");
+const name = "set";
+
+saveBtn.addEventListener("click", () => {
+    let data = getDataObj();
+    setCookie(name, data, 5);
+});
+
+loadBtn.addEventListener("click", () => {
+    let data = getCookie(name);
+    if (data) {
+        setDataToElements(data);
+    } else {
+        console.log(">>>Cookie is clear. No data to load.");
+    }
+});
+
+clearBtn.addEventListener("click", () => {
+    deleteCookie(name);
+});
+
+const getDataObj = () => {
+    return {
+        table: `${tableEl.value}`,
+        chair: `${chairEl.value}`,
+    };
+};
+
+const setDataToElements = (data) => {
+    tableEl.value = data.table;
+    chairEl.value = data.chair;
+};
+
+const setCookie = (name, obj, days) => {
+    let expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + days);
+    let cookieValue =
+        encodeURIComponent(JSON.stringify(obj)) +
+        "; expires=" +
+        expirationDate.toUTCString();
+    document.cookie = name + "=" + cookieValue;
+};
+
+const getCookie = (name) => {
+    let cookies = document.cookie.split(";");
+    for (const cookie of cookies) {
+        let [cookieName, cookieValue] = cookie.trim().split("=");
+        if (cookieName === name) {
+            return JSON.parse(decodeURIComponent(cookieValue));
+        }
+    }
+    return null;
+};
+
+const deleteCookie = (name) => {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+};
