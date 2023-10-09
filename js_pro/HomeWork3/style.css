@@ -44,7 +44,6 @@ body {
 
 .box {
   min-width: 500px;
-  max-width: 800px;
   padding: 10px;
   background-color: #cdd9f0;
   border: 1px solid #bbaaf7;
@@ -54,17 +53,38 @@ body {
   align-items: flex-start;
   gap: 10px;
 }
+.box_error {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: red;
+}
+.box_text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 200;
+  text-decoration: none;
+  color: #151227;
+}
 .box_content {
+  min-width: 780px;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
   justify-content: center;
-  width: 800px;
+  background-color: #c7eee4;
+  padding: 5px;
 }
 .box_content__review {
-  width: 800px;
   min-height: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
   word-break: break-all;
+}
+
+.productbox {
+  width: 800px;
 }/*# sourceMappingURL=style.css.map */
