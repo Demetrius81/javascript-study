@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 24px;
+  background-image: url("https://staticg.sportskeeda.com/editor/2023/05/b971a-16834740960024-1920.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-flow: column;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #9fe0ff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 7px 5px 10px 2px #808080;
+}
+.header_title {
+  font-size: 48px;
+  font-weight: 600;
+  color: #44034d;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.header_tagline {
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 600;
+  color: #17034d;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.practice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  gap: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+  background-color: #e5ffc2;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 7px 5px 10px 2px #808080;
+}
+.practice_name {
+  width: 200px;
+  text-align: left;
+}
+.practice_time {
+  width: 300px;
+  text-align: center;
+}
+.practice_current {
+  width: 50px;
+  text-align: right;
+}
+.practice_slash {
+  width: 10px;
+}
+.practice_max {
+  width: 50px;
+  text-align: left;
+}
+.practice_buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: row;
+  gap: 5px;
+}
+.practice_buttons__ok-btn {
+  padding: 5px 10px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1db100;
+  color: #fff;
+}
+.practice_buttons__ok-btn:hover {
+  background-color: #60df47;
+  cursor: pointer;
+}
+.practice_buttons__cancel-btn {
+  padding: 5px 10px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background-color: #dd0000;
+  color: #fff;
+}
+.practice_buttons__cancel-btn:hover {
+  background-color: #ff4646;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
