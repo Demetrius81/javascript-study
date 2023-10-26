@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .picture {
+            width: 20%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        "use strict";
+        const boxEl = document.querySelector(".box");
+
+        let data = [];
+        async function showPictures() {
+            const url = "https://api.unsplash.com/photos/?client_id=hogzj3kFFFplvMi0uANfWYsCPo1-lqgHj6UulC0KzcU";
+            const response = await fetch(url);
+            data = await response.json();
+            data.forEach(pic => {
+                const picEl = document.createElement("img");
+                picEl.setAttribute("src", `${pic.urls.regular}`);
+                picEl.setAttribute("alt", `${pic.alt_description}`);
+                picEl.classList.add("picture");
+                boxEl.append(picEl);
+                console.log(pic.alt_description);
+            })
+        }
+
+        showPictures();
+
+        document.addEventListener("scroll", () => {
+            let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+            if (windowRelativeBottom < document.documentElement.clientHeight + 100) {
+                showPictures();
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
