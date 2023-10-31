@@ -24,6 +24,9 @@ body {
     &_picture-description {
         color: #fff;
     }
+    &_picture-likes {
+        color: #ffe570;
+    }
 
     &_button-box {
         display: flex;
@@ -49,4 +52,18 @@ body {
 
 .like {
     background-color: #369300;
+}
+
+.like:hover {
+    background-color: #45b306;
+}
+
+.disabled {
+    color: #fff;
+    background-color: #a7a7a7;
+}
+
+.disabled:hover {
+    color: #fff;
+    background-color: #a7a7a7;
 }

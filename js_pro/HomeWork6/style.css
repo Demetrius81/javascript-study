@@ -23,6 +23,9 @@ body {
 .slide_picture-description {
   color: #fff;
 }
+.slide_picture-likes {
+  color: #ffe570;
+}
 .slide_button-box {
   display: flex;
   flex-flow: row;
@@ -44,4 +47,18 @@ body {
 
 .like {
   background-color: #369300;
+}
+
+.like:hover {
+  background-color: #45b306;
+}
+
+.disabled {
+  color: #fff;
+  background-color: #a7a7a7;
+}
+
+.disabled:hover {
+  color: #fff;
+  background-color: #a7a7a7;
 }/*# sourceMappingURL=style.css.map */
