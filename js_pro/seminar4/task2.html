@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Task 2</title>
+    </head>
+    <body>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .app {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            flex-flow: row wrap;
+            gap: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #99f88d;
+            border: 2px solid #33da1c;
+            border-radius: 10px;
+            color: #0c6800;
+            font-size: 72px;
+            font-weight: 800;
+        }
+
+        .button {
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .add-button {
+                background-color: #4caf50;
+                color: #fff;
+            }
+
+        .add-button:hover {
+            background-color: #45a049;
+        }
+
+        .remove-button {
+                background-color: #ec1313;
+                color: #fff;
+            }
+
+        .remove-button:hover {
+            background-color: #d82e2e;
+        }
+
+        .clone-button {
+                background-color: #2a50eb;
+                color: #fff;
+            }
+
+        .clone-button:hover {
+            background-color: #4561d1;
+        }
+        </style>
+        <div class="buttons"></div>
+        <div class="app"></div>
+        <script>
+// Вы должны создать веб-страницу, которая позволяет пользователю динамически управлять элементами на странице. Ниже приведены основные требования и функциональность:
+// На странице должны быть кнопки "Добавить элемент", "Удалить элемент" и "Клонировать элемент".
+// При нажатии на кнопку "Добавить элемент" на страницу добавляется новый квадратный элемент (<div>) с размерами 100x100 пикселей. 
+// Этот элемент должен иметь класс .box и содержать текст, указывающий порядковый номер элемента (1, 2, 3 и так далее).
+// При нажатии на кнопку "Удалить элемент" удаляется последний добавленный элемент, если таковой имеется.
+// При нажатии на кнопку "Клонировать элемент" создается копия последнего добавленного элемента и добавляется на страницу.
+// Все элементы имеют класс .box и стилизованы с помощью CSS .
+// Элементы могут быть добавлены, удалены и клонированы в любом порядке и в любом количестве.
+
+            const appEl = document.querySelector(".app");
+            const buttonBoxEl = document.querySelector(".buttons");
+
+            const addBtn = document.createElement("button");
+            addBtn.classList.add("button");
+            const removeBtn = addBtn.cloneNode(true);
+            const cloneBtn = addBtn.cloneNode(true);
+            addBtn.classList.add("add-button");
+            addBtn.textContent = "Добавить";
+            removeBtn.classList.add("remove-button");
+            removeBtn.textContent = "Удалить";
+            cloneBtn.classList.add("clone-button");
+            cloneBtn.textContent = "Клонировать";
+            buttonBoxEl.append(addBtn);
+            buttonBoxEl.append(cloneBtn);
+            buttonBoxEl.append(removeBtn);
+
+            boxEl = document.createElement("div");
+            boxEl.classList.add("box")
+            const btnEls = buttonBoxEl.childNodes;
+
+            let elemNums = [];
+
+            btnEls.forEach(el => {
+                el.addEventListener("click", () => {
+                    let newEl = null;
+                    let current = undefined;
+                    // if (el.classList.contains("add-button")) {
+                    //     newEl = boxEl.cloneNode(true);
+                    //     current = elemNums.length === 0 ? 1 : elemNums[elemNums.length - 1] + 1;
+                    //     newEl.textContent = current;
+                    //     elemNums.push(current);
+                    // }
+
+                    if (el.classList.contains("add-button")) {
+                        newEl = boxEl.cloneNode(true);
+                        current = elemNums.length === 0 ? 1 : elemNums.length + 1;
+                        newEl.textContent = current;
+                        elemNums.push(current);
+                    }
+
+                    if (el.classList.contains("remove-button")) {
+                        current = elemNums.pop();
+                        if (current !== undefined) {
+                            Array.from(appEl.querySelectorAll(".box")).pop().remove();
+                        }
+                    }
+
+                    if (el.classList.contains("clone-button")) {
+                        if (elemNums.length !== 0) {
+                            newEl = boxEl.cloneNode(true);
+                            let current = elemNums[elemNums.length - 1];
+                            newEl.textContent = current;
+                            elemNums.push(current);
+                        }
+                    }
+
+                    if (newEl !== null) {
+                        appEl.append(newEl);
+                    }
+                })
+            });
+        </script>
+    </body>
+</html>
