@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        body {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding-left: 200px;
+            padding-top: 20px;
+        }
+
+        .question {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-flow: column;
+        }
+
+        .options {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-flow: column;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="question">
+            <p>Вопрос 1: Какой ваш любимый цвет?</p>
+            <div class="options">
+                <label>
+                    <input type="radio" name="q1" value="Синий">
+                    Синий
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="Зеленый">
+                    Зеленый
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="Красный">
+                    Красный
+                </label>
+            </div>
+        </div>
+        <div class="question">
+            <p>Вопрос 2: Какое ваше любимое животное?</p>
+            <div class="options">
+                <label>
+                    <input type="radio" name="q2" value="Собака">
+                    Собака
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="Кот">
+                    Кот
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="Попугай">
+                    Попугай
+                </label>
+            </div>
+        </div>
+        <button id="submit">Завершить опрос</button>
+        <div class="error" style="display: none;">Ошибка! Ответьте на все вопросы</div>
+        <div class="result" style="display: none;">
+            <p>Результаты:</p>
+            <p id="result-q1">
+                Вопрос 1:
+                <span></span>
+            </p>
+            <p id="result-q2">
+                Вопрос 2:
+                <span></span>
+            </p>
+        </div>
+        <script>
+        const btn = document.querySelector("#submit");
+        const questions = Array.from(document.querySelectorAll(".question"));
+        let answers = ["", ""];
+        const result = document.querySelector(".result");
+        const error = document.querySelector(".error");
+
+        
+        questions.forEach(el => {
+            el.addEventListener("click", (e) => {
+                result.style.display = "none";
+                error.style.display = "none";
+
+                if (e.target.tagName === "INPUT") {
+                    const inputs = el.querySelectorAll(`input`);
+                    for (const input of inputs) {
+                        if (input.checked === true) {
+                            answers[input.name === "q1" ? 0 : 1] = input.value;
+                            break;
+                        }
+                    }
+                }
+            })
+        });
+
+        btn.addEventListener("click", (e) => {
+            if (answers[0] === "" || answers[1] === "") {
+                error.style.display = "block";
+            } else {
+                result.style.display = "block";
+                const pEl1 = result.querySelector("#result-q1");
+                pEl1.firstChild.textContent = answers[0];
+                const pEl2 = result.querySelector("#result-q2");
+                pEl2.firstChild.textContent = answers[1];
+            }
+        });
+        </script>
+    </body>
+</html>

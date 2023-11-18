@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">Купить</button>
+    <script>
+        const button = document.querySelector(".btn");
+        let isTrust = true;
+
+        button.addEventListener("click", function (event) {
+            console.log(event.isTrusted);
+            if (event.isTrusted) {
+                isTrust = false;
+                addToCart(button).then(resolve => isTrust = resolve);
+            } else {
+                console.log("not trusted");
+            }
+        }, isTrust);
+
+        function addToCart(el) {
+            return new Promise((resolve, reject) => {
+                button.textContent = "Товар добавлен в корзину";
+                setTimeout(() => {
+                    button.textContent = "Купить";
+                }, 2000);
+                resolve = true;
+            });
+
+
+        }
+
+    </script>
+</body>
+
+</html>
