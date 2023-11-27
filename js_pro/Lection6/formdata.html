@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form name="superForm">
+            title:
+            <input name="title" value="test product">
+            <br>
+            price:
+            <input name="price" value="13.5" type="number">
+            <br>
+            description:
+            <input name="description" value="Lorem ipsum dolor sit amet.">
+            <br>
+            image:
+            <input name="image" value="https://ava.plus.cc/1">
+            <br>
+            category:
+            <input name="category" value="electronic">
+            <input type="submit">
+        </form>
+        <script>
+            "use strict";
+            const form = document.forms.superForm;
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                let response = await fetch("https://fakestoreapi.com/products", {method: "POST", body: new FormData(form)});
+                let result = await response.json();
+                console.log(result);
+            };
+
+            ( async () => {
+                let response = await fetch("https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits&per_page=100");
+                const reader = response.body.getReader();
+                let recivedLength = 0;
+                let chunks = [];
+
+                while (true) {
+                    const {done, value} = await reader.read();
+
+                    if (done) {
+                        break;
+                    }
+
+                    chunks.push(value);
+                    recivedLength += value.length;
+                    console.log(`Recived ${recivedLength} bytes`);
+                }
+                let chunksAll = new Uint8Array(recivedLength);
+                let position = 0;
+
+                for (let chunc of chunks) {
+                    chunksAll.set(chunc, position);
+                    position += chunc.length;
+                }
+
+                let result = new TextDecoder("utf-8").decode(chunksAll);
+                let commits = JSON.parse(result);
+                console.log(commits);
+                
+                // formData.delete(name)
+                // formData.get(name)
+                // formData.has(name)
+            })
+        </script>
+    </body>
+</html>

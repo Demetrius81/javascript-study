@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comment</title>
+    </head>
+    <body>
+        <style>
+        .replay-form{
+            display: none;
+        }
+        </style>
+        <div class="comment">
+            <p>Комментарий 1</p>
+            <button class="replay-button">Ответить</button>
+            <form class="replay-form">
+                <textarea cols="30" rows="10" placeholder="Напишите ответ..."></textarea>
+                <button class="submit-button">Отправить</button>
+            </form>
+        </div>
+        <div class="comment">
+            <p>Комментарий 1.1</p>
+            <button class="replay-button">Ответить</button>
+            <form class="replay-form">
+                <textarea cols="30" rows="10" placeholder="Напишите ответ..."></textarea>
+                <button class="submit-button">Отправить</button>
+            </form>
+        </div>
+        <div class="comment">
+            <p>Комментарий 1.2</p>
+            <button class="replay-button">Ответить</button>
+            <form class="replay-form">
+                <textarea cols="30" rows="10" placeholder="Напишите ответ..."></textarea>
+                <button class="submit-button">Отправить</button>
+            </form>
+        </div>
+        <script>
+            const replyButtons = document.querySelectorAll(".replay-button");
+
+            replyButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const comment = button.closest(".comment");
+                    const replyForm = comment.querySelector(".replay-form");
+
+                    //Скрываем все формы ответов
+                    const allReplyForms = document.querySelectorAll(".replay-form");
+                    allReplyForms.forEach(form => form.style.display = form!== replyForm ? "none" : "block")
+                    // allReplyForms.forEach(form => {
+                    //     if (form!== replyForm) {
+                    //         form.style.display = "none";
+                    //     }
+
+                    //     replyForm.style.display = "block";
+                    // })
+                })
+            })
+        </script>
+    </body>
+</html>
