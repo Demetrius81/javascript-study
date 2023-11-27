@@ -10,17 +10,18 @@ function writeFile(dirName, fileName, data) {
         console.log("the file was saved.");
     });
 }
+
 function readFile(dirName, fileName) {
     let result = null;
-    fs.readFileSync(path.resolve(__dirname, fileName), "utf-8", (err, data) => {
-        if (err) {
-            console.log(err);
-        } else {
-            result = JSON.parse(data);
-        }
-    });
-
-    return result;
+    const pathToFile = path.resolve(dirName, fileName);
+    if (fs.existsSync(pathToFile)) {
+        const data = fs.readFileSync(pathToFile, "utf-8", "r");
+        result = JSON.parse(data);
+        return result;
+    } else {
+        console.log("Not found");
+        return null;
+    }
 }
 
 module.exports = { writeFile, readFile };

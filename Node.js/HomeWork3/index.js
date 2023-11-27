@@ -1,60 +1,27 @@
 const express = require("express");
 const fs = require("fs");
+const fileservice = require("./fileservice");
+
 const path = require("path");
 
 const home = "/";
 const about = "/about";
 const file = "status.json";
 
-let status = readFile(__dirname, file) ?? {
+let status = fileservice.readFile(__dirname, file) ?? {
     home: 0,
     about: 0,
 };
-
-function writeFile(dirName, fileName, data) {
-    const jsonStatus = JSON.stringify(data);
-    fs.writeFile(path.resolve(dirName, fileName), jsonStatus, (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("the file was saved.");
-        }
-    });
-}
-
-function readFile(dirName, fileName) {
-    let result = null;
-    fs.access(path.resolve(dirName, fileName), (error) => {
-        if (error) {
-            console.log("File not found");
-        } else {
-            fs.readFileSync(
-                path.resolve(dirName, fileName),
-                "utf-8",
-                (err, data) => {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        result = JSON.parse(data);
-                        console.log(result);
-                    }
-                }
-            );
-        }
-    });
-
-    return result;
-}
 
 const app = express();
 
 app.use((req, res, next) => {
     if (req.url === home) {
         status.home++;
-        writeFile(__dirname, file, status);
+        fileservice.writeFile(__dirname, file, status);
     } else if (req.url === about) {
         status.about++;
-        writeFile(__dirname, file, status);
+        fileservice.writeFile(__dirname, file, status);
     }
     next();
 });
