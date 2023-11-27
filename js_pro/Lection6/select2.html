@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Choise the country</h1>
+        <form id="country-form">
+            <select id="country-select">
+                <option value="">Choise the country</option>
+                <option value="russia">Russia</option>
+                <option value="usa">USA</option>
+                <option value="china">China</option>
+            </select>
+        </form>
+        <h2>Capital</h2>
+        <p id="capital-info">Choise the country to known about capital</p>
+        <script>
+            const selectEl = document.querySelector("#country-select");
+            const capitalInfoElement = document.querySelector("#capital-info");
+
+            selectEl.addEventListener("change", function () {
+                const selectedCountry = selectEl.value;
+                let capital = "";
+
+                switch(selectedCountry) {
+                    case "russia":
+                        capital = "Moskow";
+                        break;
+                    case "usa":
+                        capital = "Washington";
+                        break;
+                    case "china":
+                        capital = "Peckin";
+                        break;
+                    default:
+                        capital = "hoise the country to known about capital"
+                        break;
+                }
+
+                capitalInfoElement.textContent = capital;
+            });
+        </script>
+    </body>
+</html>

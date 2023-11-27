@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Товары в магазине</h2>
+        <select name="category" id="category">
+            <option value="">Все категории</option>
+            <option value="Электроника">Электроника</option>
+            <option value="Одежда">Одежда</option>
+            <option value="Бытовая техника">Бытовая техника</option>
+            <option value="Книги">Книги</option>
+            <option value="Мебель">Мебель</option>
+
+
+        </select>
+        <ul id="list">
+        </ul>
+    </div>
+    <script>
+        const productsData = [
+            {
+                id: 1,
+                name: "Ноутбук",
+                category: "Электроника",
+            },
+            {
+                id: 2,
+                name: "Смартфон",
+                category: "Электроника",
+            },
+            {
+                id: 3,
+                name: "Кофемашина",
+                category: "Бытовая техника",
+            },
+            {
+                id: 4,
+                name: "Фотокамера",
+                category: "Электроника",
+            },
+            {
+                id: 5,
+                name: "Микроволновая печь",
+                category: "Бытовая техника",
+            },
+            {
+                id: 6,
+                name: "Книга",
+                category: "Книги",
+            },
+            {
+                id: 7,
+                name: "Футболка",
+                category: "Одежда",
+            },
+            {
+                id: 8,
+                name: "Шапка",
+                category: "Одежда",
+            },
+            {
+                id: 9,
+                name: "Стул",
+                category: "Мебель",
+            },
+            {
+                id: 10,
+                name: "Стол",
+                category: "Мебель",
+            },
+        ];
+
+
+        const selectEl = document.querySelector("#category");
+        const listEl = document.querySelector("#list")
+        showList("", productsData, listEl);
+
+        function showList(value, products, elToInsert) {
+            elToInsert.innerHTML = "";
+            if (value === "") {
+                products.forEach(p => {
+                    const listItemEl = document.createElement("li");
+                    listItemEl.textContent = p.name;
+                    elToInsert.append(listItemEl);
+                });
+            } else {
+                products.filter(p => p.category === value).forEach(p => {
+                    const listItemEl = document.createElement("li");
+                    listItemEl.textContent = p.name;
+                    elToInsert.append(listItemEl);
+                });
+            }
+        };
+
+        selectEl.addEventListener("change", (e) => {
+            const currentCategory = selectEl.value;
+            showList(currentCategory, productsData, listEl);
+
+        });
+    </script>
+</body>
+
+</html>
